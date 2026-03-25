@@ -993,6 +993,71 @@
       <div class="step-header">
         <div class="step-number">5</div>
         <div class="step-title-area">
+          <h2>검수 등급 매핑 관리</h2>
+          <div class="step-subtitle">"품명을 등급으로 자동 변환!"</div>
+        </div>
+        <div class="step-time">⏱️ 15분</div>
+      </div>
+      <div class="step-body">
+
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt5grade">"검수 등급 매핑 관리" 기능을 추가해줘.
+
+            이 기능의 목적:
+            거래처 납품 데이터의 "검수등급명(품명)"을 보고 자동으로 국고 등급(국고상/국고중/국고하/선반설)으로 분류하는 매핑 테이블을 관리하는 기능이야.
+
+            기본 매핑 데이터:
+            - 국고상: 생철A, 생철B, 생철AL, 슈레더B
+            - 국고중: 중량A, 중량AS, 중AL, 중량 ALC(가위), 중량BS, 모터블럭
+            - 국고하: 중량B, 경량A, 경량B, 경량L, 길로틴A, 길로틴B, 절단S, 압축A, 압축B, 슈레더C, 중량BLS, 중량C, 경량C, 경량T, 경량TC, 경량S, 중량BLC, 중BL
+            - 선반설: 선반A, 선반C, 압축C, 압축D
+
+            구체적으로 이렇게 만들어줘:
+            1. 등급별로 그룹핑된 매핑 테이블을 보여줘 (국고상/국고중/국고하/선반설 각각 색상 구분)
+            2. 각 등급 그룹에 새 품명을 추가할 수 있는 입력란과 "추가" 버튼
+            3. 기존 품명 옆에 "삭제" 버튼으로 매핑 제거 가능
+            4. 품명의 등급을 다른 등급으로 이동할 수 있는 드롭다운
+            5. "검색" 입력란: 품명을 입력하면 어떤 등급에 매핑되어 있는지 바로 표시
+            6. 매핑되지 않은 품명이 납품 데이터에 있으면 "미분류" 경고 표시
+            7. localStorage에 저장해서 새로고침해도 매핑 데이터 유지
+            8. "초기화" 버튼으로 기본 매핑 데이터로 되돌리기 가능
+            9. 거래처 납품 실적 데이터와 연동: 납품 데이터의 검수등급명을 이 매핑 테이블로 자동 분류해서 등급별 입고량/입고금액 요약 표시<button class="copy-btn" onclick="copyPrompt('prompt5grade')">복사</button></div>
+        </div>
+
+        <div class="data-section">
+          <div class="data-label">📊 기본 등급 매핑 데이터</div>
+          <div class="data-box" id="gradedata">국고상	생철A	생철B	생철AL	슈레더B
+국고중	중량A	중량AS	중AL	중량 ALC(가위)	중량BS	모터블럭
+국고하	중량B	경량A	경량B	경량L	길로틴A	길로틴B	절단S	압축A	압축B	슈레더C	중량BLS	중량C	경량C	경량T	경량TC	경량S	중량BLC	중BL
+선반설	선반A	선반C	압축C	압축D<button class="copy-btn" onclick="copyData('gradedata')">복사</button></div>
+        </div>
+
+        <div class="check-section">
+          <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">등급별 매핑 테이블이 색상 구분되어 보이나요?</div>
+          <div class="check-item">새 품명을 추가하고 삭제할 수 있나요?</div>
+          <div class="check-item">품명 검색 시 매핑된 등급이 바로 표시되나요?</div>
+          <div class="check-item">새로고침해도 매핑 데이터가 유지되나요?</div>
+          <div class="check-item">초기화 버튼으로 기본 데이터로 되돌릴 수 있나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p>실무에서 품명(검수등급명)은 수십 가지인데, 보고서에선 <strong>국고상/중/하/선반설</strong> 4개 등급으로 요약해야 합니다. 이 매핑 테이블을 만들어두면 데이터가 들어올 때마다 <strong>자동 분류</strong>가 되어 수작업을 줄일 수 있어요.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- STEP 6 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <div class="step-title-area">
           <h2>나머지 탭 채우기</h2>
           <div class="step-subtitle">"기능을 하나씩 추가"</div>
         </div>
@@ -1003,7 +1068,7 @@
         <!-- 5-A: 거래처 관리 -->
         <div class="prompt-section">
           <div class="prompt-label">📋 프롬프트 A — 거래처 관리 탭</div>
-          <div class="prompt-box" id="prompt5a">세 번째 탭 "거래처 관리"에 내용을 추가해줘.
+          <div class="prompt-box" id="prompt6a">세 번째 탭 "거래처 관리"에 내용을 추가해줘.
 
             상단에 KPI 카드 4개:
             1. 등록 거래처: 8개사
@@ -1019,14 +1084,14 @@
             관리 컬럼에 "수정", "삭제" 버튼을 넣어줘.
 
             "+ 거래처 등록" 버튼을 만들고, 클릭하면 입력 폼이 팝업으로 뜨게 해줘.
-            등록/수정/삭제 모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt5a')">복사</button></div>
+            등록/수정/삭제 모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6a')">복사</button></div>
         </div>
 
         <!-- 5-B: 공지사항 -->
         <div class="sub-prompt">
           <div class="prompt-section">
             <div class="prompt-label">📋 프롬프트 B — 공지사항 탭</div>
-            <div class="prompt-box" id="prompt5b">네 번째 탭 "공지사항"에 내용을 추가해줘.
+            <div class="prompt-box" id="prompt6b">네 번째 탭 "공지사항"에 내용을 추가해줘.
 
               왼쪽 절반: 공지사항 게시판
               - 표: 구분(필독/일반) | 제목 | 작성자 | 작성일
@@ -1039,7 +1104,7 @@
               - "+ 일정 등록" 버튼
               - 날짜 클릭하면 일정 추가할 수 있게
 
-              모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt5b')">복사</button></div>
+              모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6b')">복사</button></div>
           </div>
         </div>
 
@@ -1055,11 +1120,11 @@
 
 
     <!-- ═══════════════════════════════════════ -->
-    <!-- STEP 6 -->
+    <!-- STEP 7 -->
     <!-- ═══════════════════════════════════════ -->
     <div class="step-card">
       <div class="step-header">
-        <div class="step-number">6</div>
+        <div class="step-number">7</div>
         <div class="step-title-area">
           <h2>마무리 다듬기</h2>
           <div class="step-subtitle">"완성도를 높이자"</div>
@@ -1070,7 +1135,7 @@
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt6">아직 안 만든 탭들을 채우고, 전체적으로 다듬어줘.
+          <div class="prompt-box" id="prompt7">아직 안 만든 탭들을 채우고, 전체적으로 다듬어줘.
 
             1. 두 번째 탭 "등급별현황/수입관리":
             - KPI 카드 4개 (구매량 총합, 누계 입고금액, 구매량/금액 비율, 국고하+선반설 비율)
@@ -1089,7 +1154,7 @@
             - "로그아웃" 버튼 (클릭 시 확인창만 띄우기)
             - "조회 연도" 드롭다운 (2024, 2025, 2026)
             - 반응형: 넓은 화면은 가로, 좁은 화면은 세로
-            - 하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
+            - 하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyPrompt('prompt7')">복사</button></div>
         </div>
 
         <div class="check-section">
