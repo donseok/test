@@ -34,6 +34,8 @@
       --purple-bg: #F5F3FF;
       --amber-bg: #FFFBEB;
       --amber: #F59E0B;
+      --teal: #14B8A6;
+      --teal-bg: #F0FDFA;
     }
 
     * {
@@ -394,6 +396,84 @@
       line-height: 1.7;
     }
 
+    /* ── THINKING SECTION ── */
+    .thinking-section {
+      background: var(--teal-bg);
+      border: 1px solid #99F6E4;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .thinking-section h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .thinking-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(20, 184, 166, 0.15);
+    }
+
+    .thinking-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .thinking-num {
+      background: var(--teal);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .thinking-text {
+      font-size: 13.5px;
+      color: #115E59;
+      line-height: 1.7;
+    }
+
+    .thinking-text strong {
+      color: #0F766E;
+    }
+
+    .thinking-text .thought-example {
+      display: block;
+      margin-top: 4px;
+      padding: 6px 12px;
+      background: rgba(20, 184, 166, 0.08);
+      border-left: 2px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      color: #115E59;
+    }
+
+    .thinking-arrow {
+      text-align: center;
+      color: var(--teal);
+      font-size: 14px;
+      margin: 4px 0;
+      opacity: 0.6;
+    }
+
     /* ── DATA BOX ── */
     .data-section {
       margin-bottom: 20px;
@@ -648,6 +728,119 @@
       margin-bottom: 10px;
     }
 
+    /* ── FRAMEWORK BOX ── */
+    .framework-box {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      border: 2px solid var(--teal);
+      box-shadow: 0 2px 12px rgba(20, 184, 166, 0.1);
+    }
+
+    .framework-box h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .framework-box .framework-subtitle {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+    }
+
+    .framework-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fw-step {
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--gray-200);
+      position: relative;
+    }
+
+    .fw-step-num {
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      background: var(--teal);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .fw-step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .fw-step p {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .fw-step .fw-example {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--teal-bg);
+      border-radius: 6px;
+      font-size: 12.5px;
+      color: #0F766E;
+      line-height: 1.5;
+    }
+
+    .fw-step:nth-child(1) { background: #F0FDFA; }
+    .fw-step:nth-child(2) { background: #EFF6FF; }
+    .fw-step:nth-child(3) { background: #FFFBEB; }
+    .fw-step:nth-child(4) { background: #F5F3FF; }
+
+    .fw-connector {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      color: var(--gray-400);
+      font-weight: 600;
+    }
+
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-bg);
+      border: 1px solid #BFDBFE;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+
+    .ref-link:hover {
+      background: #DBEAFE;
+    }
+
     /* ── PRINT ── */
     @media print {
       body {
@@ -668,7 +861,8 @@
       .prep-section,
       .trouble-section,
       .bonus-section,
-      .glossary-section {
+      .glossary-section,
+      .framework-box {
         break-inside: avoid;
         page-break-inside: avoid;
       }
@@ -702,7 +896,8 @@
         padding: 20px;
       }
 
-      .glossary-grid {
+      .glossary-grid,
+      .framework-steps {
         grid-template-columns: 1fr;
       }
 
@@ -729,21 +924,72 @@
       <div class="header-info">
         <span>📌 동국제강 원료기획팀</span>
         <span>⏱️ 총 약 90분</span>
-        <span>🎯 6단계 실습</span>
+        <span>🎯 7단계 실습</span>
+        <span>🖥️ Google Antigravity IDE + Opus 4.6</span>
       </div>
     </div>
   </header>
 
   <div class="content">
 
+    <!-- ═══════ 완성 레퍼런스 ═══════ -->
+    <a href="https://raw-po-poc-codex.vercel.app/#plan" target="_blank" class="ref-link">
+      🖥️ 오늘 만들 결과물 미리보기 (레퍼런스 사이트)
+    </a>
+
     <!-- ═══════ INTRO ═══════ -->
     <div class="concept-box">
-      <h2>💡 오늘의 방식</h2>
-      <p>처음부터 완벽하게 만들지 않습니다.<br>
-        <strong>간단하게 시작 → 하나씩 기능 추가 → 점점 완성</strong>하는 방식으로 진행합니다.
+      <h2>💡 오늘의 핵심</h2>
+      <p><strong>"정답 프롬프트를 외우는 것"</strong>이 아니라, <strong>"내 생각을 프롬프트로 옮기는 방법"</strong>을 배웁니다.<br>
+        코딩을 몰라도 됩니다. <strong>화면을 말로 설명할 수 있으면, AI가 만들어 줍니다.</strong>
       </p>
       <div class="analogy">
-        🏠 <strong>비유하면:</strong> 집을 지을 때 <strong>골조 세우기 → 인테리어 → 가전 배치</strong> 순서와 같아요!
+        🏠 <strong>비유하면:</strong> 인테리어 업체에 "거실은 밝은 톤, 소파는 L자형, TV는 벽걸이로" 설명하듯이,
+        AI에게 <strong>원하는 화면을 말로 설명</strong>하면 됩니다!
+      </div>
+    </div>
+
+    <!-- ═══════ 프롬프트 작성 프레임워크 ═══════ -->
+    <div class="framework-box">
+      <h2>🧠 프롬프트 작성의 4단계</h2>
+      <div class="framework-subtitle">매 단계마다 이 순서로 생각하면, 누구나 좋은 프롬프트를 쓸 수 있습니다</div>
+
+      <div class="framework-steps">
+        <div class="fw-step">
+          <div class="fw-step-num">1</div>
+          <h3>🖼️ 눈으로 그리기</h3>
+          <p>완성된 화면을 머릿속에 그려보세요</p>
+          <div class="fw-example">
+            💭 "상단에 로고, 아래에 탭 메뉴, 그 아래에 숫자 카드와 차트가 있는 모습"
+          </div>
+        </div>
+
+        <div class="fw-step">
+          <div class="fw-step-num">2</div>
+          <h3>🧩 조각으로 나누기</h3>
+          <p>화면을 영역별로 쪼개보세요</p>
+          <div class="fw-example">
+            💭 "① 헤더 영역 ② 탭 메뉴 ③ KPI 카드 ④ 차트 영역 ⑤ 데이터 테이블"
+          </div>
+        </div>
+
+        <div class="fw-step">
+          <div class="fw-step-num">3</div>
+          <h3>📝 말로 설명하기</h3>
+          <p>각 조각을 옆 사람에게 설명하듯 적어보세요</p>
+          <div class="fw-example">
+            💭 "헤더는 진한 남색 바탕에 왼쪽에 로고, 오른쪽에 날짜. 아래에 탭 3개: ..."
+          </div>
+        </div>
+
+        <div class="fw-step">
+          <div class="fw-step-num">4</div>
+          <h3>✨ AI에게 보내기</h3>
+          <p>정리한 내용을 그대로 AI에게 보내세요. 구체적일수록 좋습니다!</p>
+          <div class="fw-example">
+            💡 핵심: "이쁘게 만들어줘" ❌ → "남색 헤더, 오렌지 포인트, 카드 4개 가로 배치" ✅
+          </div>
+        </div>
       </div>
     </div>
 
@@ -753,15 +999,19 @@
       <div class="prep-steps">
         <div class="prep-step">
           <div class="prep-num">1</div>
-          <div class="prep-step-text"><strong>Antigravity 실행</strong> 구글계정으로 접속 </div>
+          <div class="prep-step-text"><strong>Google Antigravity IDE</strong> 실행 → 구글 계정으로 로그인</div>
         </div>
         <div class="prep-step">
           <div class="prep-num">2</div>
-          <div class="prep-step-text">채팅창에 프롬프트를 <strong>복사-붙여넣기</strong>하면 끝!</div>
+          <div class="prep-step-text">에이전트 모델을 <strong>Opus 4.6</strong>으로 설정</div>
         </div>
         <div class="prep-step">
           <div class="prep-num">3</div>
-          <div class="prep-step-text">AI가 만들어준 코드를 <strong>내 웹 브라우저에서</strong>바로 확인</div>
+          <div class="prep-step-text">채팅창에 프롬프트를 <strong>복사-붙여넣기</strong>하면 끝!</div>
+        </div>
+        <div class="prep-step">
+          <div class="prep-num">4</div>
+          <div class="prep-step-text">AI가 만들어준 코드를 <strong>내 웹 브라우저에서</strong> 바로 확인</div>
         </div>
       </div>
     </div>
@@ -783,37 +1033,65 @@
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 우리 팀 대시보드를 상상해봅시다
+              <span class="thought-example">💭 "상단에 로고와 팀명, 그 아래에 메뉴 탭들, 탭을 누르면 내용이 바뀌는 화면"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 가장 큰 뼈대부터 잡아봅시다
+              <span class="thought-example">💭 "① 헤더(로고+팀명) ② 탭 메뉴(부재료실적, 등급별현황, 팀일정) ③ 각 탭의 빈 내용"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>말로 설명하기:</strong> 색상, 위치, 크기를 구체적으로 적어봅시다
+              <span class="thought-example">💭 "헤더는 진한 남색, 포인트는 오렌지, 배경은 밝은 회색"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">4</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 처음부터 완벽하게 안 해도 됩니다. <strong>"빈 껍데기"를 먼저 만들고, 나중에 하나씩 채워 넣는 거예요!</strong>
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt1">동국제강 원료기획팀에서 사용할 업무 대시보드 웹 페이지를 만들어줘.
-            하나의 HTML 파일로 만들어줘.
+하나의 HTML 파일로 만들어줘.
 
-            상단에 진한 남색 배경의 헤더를 넣고, 왼쪽에 "DK 동국제강" 로고 텍스트, 오른쪽에 오늘 날짜와 "동국제강 원료기획팀 | 이돈석 팀장님" 텍스트를 넣어줘.
+상단에 진한 남색 배경의 헤더를 넣고, 왼쪽에 "DK 동국제강" 로고 텍스트, 오른쪽에 오늘 날짜와 "동국제강 원료기획팀 | 이돈석 팀장님" 텍스트를 넣어줘.
 
-            헤더 아래에 탭 메뉴 5개를 만들어줘:
-            - 부재료실적 모니터링
-            - 등급별현황/수입관리
-            - 거래처 관리
-            - 공지사항
-            - 사용자관리
+헤더 아래에 탭 메뉴 3개를 만들어줘:
+- 부재료실적 모니터링
+- 등급별현황/수입관리
+- 팀 일정
 
-            탭을 클릭하면 해당 내용이 보이고, 다른 탭 내용은 숨겨지게 해줘.
-            지금은 각 탭에 "여기에 OO 내용이 들어갑니다"라고만 표시해줘.
+탭을 클릭하면 해당 내용이 보이고, 다른 탭 내용은 숨겨지게 해줘.
+지금은 각 탭에 "여기에 OO 내용이 들어갑니다"라고만 표시해줘.
 
-            전체 배경은 밝은 회색(#F4F6F9), 헤더는 진한 남색(#1B2A4A), 포인트 색상은 오렌지(#E67E22)로 해줘.<button class="copy-btn"
-              onclick="copyPrompt('prompt1')">복사</button></div>
+전체 배경은 밝은 회색(#F4F6F9), 헤더는 진한 남색(#1B2A4A), 포인트 색상은 오렌지(#E67E22)로 해줘.<button class="copy-btn" onclick="copyPrompt('prompt1')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
           <div class="check-item">화면에 네이비색 헤더가 보이나요?</div>
-          <div class="check-item">5개 탭을 클릭하면 내용이 바뀌나요?</div>
+          <div class="check-item">3개 탭을 클릭하면 내용이 바뀌나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
           <p>지금 결과물은 <strong>HTML</strong>(구조) + <strong>CSS</strong>(디자인) + <strong>JavaScript</strong>(탭 전환 동작)의
-            조합입니다. AI가 세 가지를 한번에 만들어준 거예요!</p>
+            조합입니다. AI가 세 가지를 한번에 만들어준 거예요! 이 세 단어를 몰라도 전혀 상관없습니다.</p>
         </div>
 
       </div>
@@ -834,18 +1112,42 @@
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 팀장님이 대시보드를 열었을 때 맨 먼저 봐야 할 숫자가 뭘까요?
+              <span class="thought-example">💭 "올해 목표가 얼마고, 지금 실적이 얼마고, 달성률이 몇 %인지"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 핵심 지표를 카드 형태로 정리해봅시다
+              <span class="thought-example">💭 "카드 4개: 연간목표 | 누계실적 | 달성률 | 거래처 성과율 → 가로로 나란히"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 숫자를 그냥 나열하면 눈에 안 들어옵니다. <strong>큰 글씨 + 작은 설명 + 색상 강조</strong>가 핵심이에요.
+              실무에서 이걸 <strong>"KPI 카드"</strong>라고 부릅니다.
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt2">첫 번째 탭 "부재료실적 모니터링"에 내용을 추가해줘.
 
-            맨 위에 숫자 카드 4개를 가로로 나란히 배치해줘:
-            1. 연간 목표: 272.5만 톤 (설명: 2024년 연간 계획 합계)
-            2. 누계 실적: 281.5만 톤 (옆에 "초과" 표시를 오렌지색으로)
-            3. 계획 대비 달성률: 103.3% (옆에 "초과" 표시)
-            4. 거래처 평균 성과율: 90.4%
+맨 위에 숫자 카드 4개를 가로로 나란히 배치해줘:
+1. 연간 목표: 272.5만 톤 (설명: 2024년 연간 계획 합계)
+2. 누계 실적: 281.5만 톤 (옆에 "초과" 표시를 오렌지색으로)
+3. 계획 대비 달성률: 103.3% (옆에 "초과" 표시)
+4. 거래처 평균 성과율: 90.4%
 
-            카드는 흰색 배경에 둥근 모서리, 큰 숫자는 굵고 크게, 설명은 작은 회색 글씨로 해줘.<button class="copy-btn"
-              onclick="copyPrompt('prompt2')">복사</button></div>
+카드는 흰색 배경에 둥근 모서리, 큰 숫자는 굵고 크게, 설명은 작은 회색 글씨로 해줘.<button class="copy-btn" onclick="copyPrompt('prompt2')">복사</button></div>
         </div>
 
         <div class="check-section">
@@ -856,7 +1158,7 @@
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p>이런 숫자 카드를 <strong>"KPI 카드"</strong>라고 합니다. 대시보드에서 가장 중요한 요소예요. 경영진이 한눈에 현황을 파악할 수 있게 해줍니다.</p>
+          <p>프롬프트에 <strong>실제 숫자</strong>를 넣었더니 AI가 바로 반영했죠? "적당히 넣어줘"보다 <strong>"272.5만 톤"처럼 구체적으로</strong> 쓸수록 원하는 결과가 나옵니다.</p>
         </div>
 
       </div>
@@ -877,28 +1179,53 @@
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 숫자 카드만으론 "추이"가 안 보입니다. 월별 흐름을 보려면?
+              <span class="thought-example">💭 "막대 차트로 계획 vs 실적을 비교하고, 꺾은선 차트로 거래처별 추이를 보면 되겠다"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 차트를 배치해봅시다
+              <span class="thought-example">💭 "왼쪽에 큰 막대 차트(60%), 오른쪽에 작은 꺾은선 차트(40%) → 좁은 화면에서는 위아래로"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 차트의 <strong>데이터(숫자)</strong>를 직접 알려주세요. AI가 임의로 넣은 데이터는 어차피 나중에 바꿔야 합니다.
+              우리 실제 계획/실적 숫자를 쓰면 바로 실무용이 됩니다!
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt3">KPI 카드 아래에 차트 2개를 나란히 넣어줘.
-            차트는 Chart.js 라이브러리를 CDN으로 불러와서 사용해줘.
+차트는 Chart.js 라이브러리를 CDN으로 불러와서 사용해줘.
 
-            왼쪽 차트 (너비 60%): "월별 계획 대비 실적"
-            - 막대 차트
-            - 가로축: 1월~12월
-            - 주황색 막대: 실적 (만톤 단위로 표시)
-            - 파란색 테두리 막대: 계획
-            - 제목 옆에 "12월 누계 103.3%" 표시
+왼쪽 차트 (너비 60%): "월별 계획 대비 실적"
+- 막대 차트
+- 가로축: 1월~12월
+- 주황색 막대: 실적 (만톤 단위로 표시)
+- 파란색 테두리 막대: 계획
+- 제목 옆에 "12월 누계 103.3%" 표시
 
-            아래 샘플 데이터를 사용해줘:
-            계획(만톤): 21.5, 21.5, 22.5, 24.5, 24.5, 25.0, 24.0, 20.0, 20.5, 20.0, 25.0, 23.5
-            실적(만톤): 23.9, 20.6, 22.9, 21.4, 22.6, 25.6, 27.1, 24.7, 22.5, 25.2, 23.1, 21.8
+아래 샘플 데이터를 사용해줘:
+계획(만톤): 21.5, 21.5, 22.5, 24.5, 24.5, 25.0, 24.0, 20.0, 20.5, 20.0, 25.0, 23.5
+실적(만톤): 23.9, 20.6, 22.9, 21.4, 22.6, 25.6, 27.1, 24.7, 22.5, 25.2, 23.1, 21.8
 
-            오른쪽 차트 (너비 40%): "월별 주요 거래처 납품 추이"
-            - 꺾은선 차트
-            - 거래처 3개: 일보앤틱(파란색), 대한강철(주황색), 동국자원(초록색)
-            - 적당한 샘플 데이터를 넣어줘
+오른쪽 차트 (너비 40%): "월별 주요 거래처 납품 추이"
+- 꺾은선 차트
+- 거래처 3개: 일보앤틱(파란색), 대한강철(주황색), 동국자원(초록색)
+- 적당한 샘플 데이터를 넣어줘
 
-            화면이 좁아지면 차트가 위아래로 배치되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt3')">복사</button></div>
+화면이 좁아지면 차트가 위아래로 배치되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt3')">복사</button></div>
         </div>
 
         <div class="check-section">
@@ -931,43 +1258,72 @@
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>문제 인식:</strong> 지금 차트의 데이터는 코드에 박혀있습니다. 매달 데이터가 바뀌면 어떻게 하죠?
+              <span class="thought-example">💭 "엑셀에서 데이터를 복사해서 붙여넣으면 차트가 자동으로 바뀌면 좋겠다!"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 이 기능을 세부적으로 쪼개봅시다
+              <span class="thought-example">💭 "① 입력창(textarea) ② 적용 버튼 ③ 저장 버튼 ④ 데이터를 파싱하는 로직 ⑤ 차트 갱신"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>데이터 형태 설명이 핵심!</strong> AI가 데이터를 파싱하려면 <strong>"몇 줄이고, 무슨 순서이고, 어떻게 구분되는지"</strong>를 정확히 알려줘야 합니다.
+              <span class="thought-example">💭 "4줄짜리, 탭으로 구분, 순서: 인천계획 → 인천실적 → 포항계획 → 포항실적"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">4</div>
+            <div class="thinking-text">
+              <strong>+ 거래처 납품 데이터도!</strong> 같은 원리로 5열 데이터(전기일/공급업체/검수등급/입고량/입고금액)도 붙여넣기 가능하게 만들어봅시다.
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt4">차트 아래에 "월별 계획 대비 실적 데이터" 영역을 추가해줘.
 
-            이 영역의 핵심 기능:
-            엑셀에서 데이터를 복사해서 붙여넣으면, 위의 차트와 KPI 숫자가 자동으로 바뀌는 기능이야.
+이 영역의 핵심 기능:
+엑셀에서 데이터를 복사해서 붙여넣으면, 위의 차트와 KPI 숫자가 자동으로 바뀌는 기능이야.
 
-            구체적으로 이렇게 만들어줘:
-            1. "붙여넣은 값 적용" 버튼과 "저장" 버튼을 만들어줘
-            2. 버튼을 누르면 큰 텍스트 입력창(textarea)이 나타나게 해줘
-            3. 사용자가 엑셀에서 아래 형태의 데이터를 복사해서 붙여넣어:
-            4줄짜리 데이터 (탭으로 구분됨)
-            1줄: 인천 계획 숫자 12개 (1월~12월)
-            2줄: 인천 실적 숫자 12개
-            3줄: 포항 계획 숫자 12개
-            4줄: 포항 실적 숫자 12개
-            4. "적용" 버튼을 누르면 붙여넣은 텍스트를 줄바꿈과 탭으로 나눠서 숫자로 변환하고, 인천+포항 합계로 차트와 KPI 카드를 자동 갱신해줘
-            5. "저장" 버튼을 누르면 localStorage에 저장해서 새로고침해도 데이터가 유지되게 해줘
-            6. 페이지를 열 때 localStorage에 저장된 데이터가 있으면 자동으로 불러와줘
+구체적으로 이렇게 만들어줘:
+1. "붙여넣은 값 적용" 버튼과 "저장" 버튼을 만들어줘
+2. 버튼을 누르면 큰 텍스트 입력창(textarea)이 나타나게 해줘
+3. 사용자가 엑셀에서 아래 형태의 데이터를 복사해서 붙여넣어:
+4줄짜리 데이터 (탭으로 구분됨)
+1줄: 인천 계획 숫자 12개 (1월~12월)
+2줄: 인천 실적 숫자 12개
+3줄: 포항 계획 숫자 12개
+4줄: 포항 실적 숫자 12개
+4. "적용" 버튼을 누르면 붙여넣은 텍스트를 줄바꿈과 탭으로 나눠서 숫자로 변환하고, 인천+포항 합계로 차트와 KPI 카드를 자동 갱신해줘
+5. "저장" 버튼을 누르면 localStorage에 저장해서 새로고침해도 데이터가 유지되게 해줘
+6. 페이지를 열 때 localStorage에 저장된 데이터가 있으면 자동으로 불러와줘
 
-            아래에 현재 데이터를 테이블로도 보여줘 (인천 계획, 인천 실적, 포항 계획, 포항 실적 4줄)
+아래에 현재 데이터를 테이블로도 보여줘 (인천 계획, 인천 실적, 포항 계획, 포항 실적 4줄)
 
-            그리고 그 아래에 "거래처 납품 실적관리 데이터" 영역도 만들어줘:
-            - 큰 텍스트 입력창에 엑셀 5개 열을 복사해 붙여넣기 (전기일 / 공급업체명 / 검수등급명 / 입고량 / 입고금액)
-            - "원본 데이터 반영" 버튼으로 데이터를 파싱해서 테이블로 표시
-            - "저장" 버튼으로 localStorage에 저장
-            - 데이터가 많으니까 100개씩 페이지 나누기<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
+그리고 그 아래에 "거래처 납품 실적관리 데이터" 영역도 만들어줘:
+- 큰 텍스트 입력창에 엑셀 5개 열을 복사해 붙여넣기 (전기일 / 공급업체명 / 검수등급명 / 입고량 / 입고금액)
+- "원본 데이터 반영" 버튼으로 데이터를 파싱해서 테이블로 표시
+- "저장" 버튼으로 localStorage에 저장
+- 데이터가 많으니까 100개씩 페이지 나누기<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
         </div>
 
         <div class="data-section">
           <div class="data-label">📊 테스트용 데이터 (복사해서 붙여넣기)</div>
-          <div class="data-box" id="testdata1">120000 120000 125000 140000 140000 140000 135000 115000 115000 140000
-            140000 140000
-            127063 112223 121629 119461 118783 148765 159953 142029 124798 141347 124439 133081
-            95000 95000 100000 105000 105000 110000 105000 85000 90000 60000 110000 95000
-            111756 94104 107552 94741 107083 107615 110992 104927 100542 111148 106371 84476<button class="copy-btn"
-              onclick="copyData('testdata1')">복사</button></div>
+          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
+127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
+95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
+111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
         </div>
 
         <div class="check-section">
@@ -978,8 +1334,9 @@
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p><strong>localStorage</strong>는 브라우저 안의 <strong>개인 서랍장</strong> 같은 거예요. 서버 없이도 데이터를 저장할 수 있습니다. 실무에서 간단한 도구를
-            만들 때 아주 유용합니다.</p>
+          <p><strong>localStorage</strong>는 브라우저 안의 <strong>개인 서랍장</strong> 같은 거예요. 서버 없이도 데이터를 저장할 수 있습니다.
+            그리고 프롬프트에서 <strong>"4줄짜리, 탭으로 구분"</strong>이라고 데이터 형태를 명확히 알려준 것이 핵심입니다.
+            AI는 이 설명을 보고 데이터를 파싱하는 코드를 만든 거예요.</p>
         </div>
 
       </div>
@@ -1000,29 +1357,54 @@
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>문제 인식:</strong> 납품 데이터에는 "생철A", "중량BS" 같은 세부 품명이 있는데, 보고서에는 "국고상/중/하/선반설" 4개 등급으로 요약해야 합니다.
+              <span class="thought-example">💭 "생철A → 국고상, 중량BS → 국고중... 이 매핑을 관리하는 기능이 필요하겠다!"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>필요한 기능 나열하기:</strong> "관리"라는 말에는 뭐가 포함될까요?
+              <span class="thought-example">💭 "보기(테이블) + 추가 + 삭제 + 등급 이동 + 검색 + 저장 + 초기화 → 이것도 하나씩 나열해서 알려주면 됩니다"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 기존 데이터를 <strong>구체적으로 알려주세요.</strong> "국고상: 생철A, 생철B, 생철AL, 슈레더B"처럼
+              실제 매핑 데이터를 주면 AI가 바로 기본값으로 넣어줍니다.
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt5grade">"검수 등급 매핑 관리" 기능을 추가해줘.
+          <div class="prompt-box" id="prompt5">"검수 등급 매핑 관리" 기능을 추가해줘.
 
-            이 기능의 목적:
-            거래처 납품 데이터의 "검수등급명(품명)"을 보고 자동으로 국고 등급(국고상/국고중/국고하/선반설)으로 분류하는 매핑 테이블을 관리하는 기능이야.
+이 기능의 목적:
+거래처 납품 데이터의 "검수등급명(품명)"을 보고 자동으로 국고 등급(국고상/국고중/국고하/선반설)으로 분류하는 매핑 테이블을 관리하는 기능이야.
 
-            기본 매핑 데이터:
-            - 국고상: 생철A, 생철B, 생철AL, 슈레더B
-            - 국고중: 중량A, 중량AS, 중AL, 중량 ALC(가위), 중량BS, 모터블럭
-            - 국고하: 중량B, 경량A, 경량B, 경량L, 길로틴A, 길로틴B, 절단S, 압축A, 압축B, 슈레더C, 중량BLS, 중량C, 경량C, 경량T, 경량TC, 경량S, 중량BLC, 중BL
-            - 선반설: 선반A, 선반C, 압축C, 압축D
+기본 매핑 데이터:
+- 국고상: 생철A, 생철B, 생철AL, 슈레더B
+- 국고중: 중량A, 중량AS, 중AL, 중량 ALC(가위), 중량BS, 모터블럭
+- 국고하: 중량B, 경량A, 경량B, 경량L, 길로틴A, 길로틴B, 절단S, 압축A, 압축B, 슈레더C, 중량BLS, 중량C, 경량C, 경량T, 경량TC, 경량S, 중량BLC, 중BL
+- 선반설: 선반A, 선반C, 압축C, 압축D
 
-            구체적으로 이렇게 만들어줘:
-            1. 등급별로 그룹핑된 매핑 테이블을 보여줘 (국고상/국고중/국고하/선반설 각각 색상 구분)
-            2. 각 등급 그룹에 새 품명을 추가할 수 있는 입력란과 "추가" 버튼
-            3. 기존 품명 옆에 "삭제" 버튼으로 매핑 제거 가능
-            4. 품명의 등급을 다른 등급으로 이동할 수 있는 드롭다운
-            5. "검색" 입력란: 품명을 입력하면 어떤 등급에 매핑되어 있는지 바로 표시
-            6. 매핑되지 않은 품명이 납품 데이터에 있으면 "미분류" 경고 표시
-            7. localStorage에 저장해서 새로고침해도 매핑 데이터 유지
-            8. "초기화" 버튼으로 기본 매핑 데이터로 되돌리기 가능
-            9. 거래처 납품 실적 데이터와 연동: 납품 데이터의 검수등급명을 이 매핑 테이블로 자동 분류해서 등급별 입고량/입고금액 요약 표시<button class="copy-btn" onclick="copyPrompt('prompt5grade')">복사</button></div>
+구체적으로 이렇게 만들어줘:
+1. 등급별로 그룹핑된 매핑 테이블을 보여줘 (국고상/국고중/국고하/선반설 각각 색상 구분)
+2. 각 등급 그룹에 새 품명을 추가할 수 있는 입력란과 "추가" 버튼
+3. 기존 품명 옆에 "삭제" 버튼으로 매핑 제거 가능
+4. 품명의 등급을 다른 등급으로 이동할 수 있는 드롭다운
+5. "검색" 입력란: 품명을 입력하면 어떤 등급에 매핑되어 있는지 바로 표시
+6. 매핑되지 않은 품명이 납품 데이터에 있으면 "미분류" 경고 표시
+7. localStorage에 저장해서 새로고침해도 매핑 데이터 유지
+8. "초기화" 버튼으로 기본 매핑 데이터로 되돌리기 가능
+9. 거래처 납품 실적 데이터와 연동: 납품 데이터의 검수등급명을 이 매핑 테이블로 자동 분류해서 등급별 입고량/입고금액 요약 표시<button class="copy-btn" onclick="copyPrompt('prompt5')">복사</button></div>
         </div>
 
         <div class="data-section">
@@ -1044,7 +1426,8 @@
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p>실무에서 품명(검수등급명)은 수십 가지인데, 보고서에선 <strong>국고상/중/하/선반설</strong> 4개 등급으로 요약해야 합니다. 이 매핑 테이블을 만들어두면 데이터가 들어올 때마다 <strong>자동 분류</strong>가 되어 수작업을 줄일 수 있어요.</p>
+          <p>이 프롬프트에서 배울 점: <strong>기능을 1~9번까지 번호로 나열</strong>한 것입니다. AI에게 여러 기능을 요청할 때는
+            이렇게 <strong>번호를 매겨서 나열</strong>하면 빠뜨리지 않고 만들어줍니다. "잘 만들어줘"보다 훨씬 정확한 결과가 나와요!</p>
         </div>
 
       </div>
@@ -1054,65 +1437,86 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- STEP 6 -->
     <!-- ═══════════════════════════════════════ -->
-    <div class="step-card">
-      <div class="step-header">
-        <div class="step-number">6</div>
+    <div class="step-card" style="border: 2px solid var(--blue);">
+      <div class="step-header" style="background: linear-gradient(135deg, var(--blue) 0%, #1D4ED8 100%);">
+        <div class="step-number" style="background: var(--navy);">6</div>
         <div class="step-title-area">
-          <h2>나머지 탭 채우기</h2>
-          <div class="step-subtitle">"기능을 하나씩 추가"</div>
+          <h2>등급별현황/수입관리 탭 ⭐</h2>
+          <div class="step-subtitle">"두 번째 핵심 탭을 채우자"</div>
         </div>
-        <div class="step-time">⏱️ 20분</div>
+        <div class="step-time">⏱️ 15분</div>
       </div>
       <div class="step-body">
 
-        <!-- 5-A: 거래처 관리 -->
-        <div class="prompt-section">
-          <div class="prompt-label">📋 프롬프트 A — 거래처 관리 탭</div>
-          <div class="prompt-box" id="prompt6a">세 번째 탭 "거래처 관리"에 내용을 추가해줘.
-
-            상단에 KPI 카드 4개:
-            1. 등록 거래처: 8개사
-            2. 월 공급능력 합계: 11.5만
-            3. 금년 납품량 합계: 26.5만
-            4. 대표 거래처: 현대스크랩
-
-            아래에 거래처 목록 테이블을 만들어줘:
-            코드 | 거래처명 | 지역 | 대표자 | 연락처 | 월공급능력(톤) | 금년납품량(톤) | 신뢰등급 | 납품실적 | 관리
-
-            샘플 데이터 8개를 넣어줘.
-            신뢰등급은 A, B+, B 같은 형태로, 납품실적은 프로그레스바로 표시해줘.
-            관리 컬럼에 "수정", "삭제" 버튼을 넣어줘.
-
-            "+ 거래처 등록" 버튼을 만들고, 클릭하면 입력 폼이 팝업으로 뜨게 해줘.
-            등록/수정/삭제 모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6a')">복사</button></div>
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 이 탭에서는 무엇을 볼 수 있어야 할까요?
+              <span class="thought-example">💭 "등급별(국고상/중/하/선반설) 구매 현황과, 수입 스크랩의 계약/운송 상태를 한눈에"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 이 탭도 위에서 아래로 영역을 나눠봅시다
+              <span class="thought-example">💭 "① KPI 카드 4개 ② 월별 구매량 차트 ③ 등급별 도넛 차트 ④ 구매실적 테이블 ⑤ 수입 운송현황 테이블"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 테이블의 <strong>"상태"를 색깔로 구분</strong>해달라고 요청하면, 보고서처럼 한눈에 파악할 수 있습니다.
+              <span class="thought-example">💭 "도착=초록, 운송중=주황, 선적=노랑, 계약=회색 → 이렇게 색깔 규칙을 알려주면 AI가 배지로 만들어줘요"</span>
+            </div>
+          </div>
         </div>
 
-        <!-- 5-B: 공지사항 -->
-        <div class="sub-prompt">
-          <div class="prompt-section">
-            <div class="prompt-label">📋 프롬프트 B — 공지사항 탭</div>
-            <div class="prompt-box" id="prompt6b">네 번째 탭 "공지사항"에 내용을 추가해줘.
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt6">두 번째 탭 "등급별현황/수입관리"에 내용을 추가해줘.
 
-              왼쪽 절반: 공지사항 게시판
-              - 표: 구분(필독/일반) | 제목 | 작성자 | 작성일
-              - 샘플 공지 5~6개 넣어줘 (철스크랩 수급계획 관련 내용으로)
-              - "+ 등록" 버튼을 누르면 공지 작성 팝업이 뜨게 해줘
+상단에 KPI 카드 4개:
+1. 구매량 총합: 48.7만 톤
+2. 누계 입고금액: 1,247억 원
+3. 구매량/금액 비율: 25.6만원/톤
+4. 국고하+선반설 비율: 63.2%
 
-              오른쪽 절반: 팀 일정관리
-              - 이번 달 캘린더 (달력 모양)
-              - "이전/다음" 버튼으로 월 이동
-              - "+ 일정 등록" 버튼
-              - 날짜 클릭하면 일정 추가할 수 있게
+아래에 차트 2개를 나란히:
+왼쪽 (60%): "월별 구매량 추이" — 막대+꺾은선 복합 차트
+- 막대: 등급별 구매량 (국고상=파랑, 국고중=초록, 국고하=주황, 선반설=보라)
+- 꺾은선: 합계 추이
+- 가로축: 1월~12월
 
-              모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6b')">복사</button></div>
-          </div>
+오른쪽 (40%): "인천공장 배분 현황" — 도넛 차트
+- 국고하 42%, 국고중 28%, 선반설 15%, 국고상 10%, 기타 5%
+
+차트 아래에 "월별 구매실적 상세" 테이블:
+월 | 국고상(톤) | 국고중(톤) | 국고하(톤) | 선반설(톤) | 합계(톤) | 금액(억원) | 전월비(%)
+12개월 샘플 데이터를 넣어줘.
+
+그 아래에 "수입 계약/운송 현황" 테이블:
+계약번호 | 수출국 | 공급사 | 등급 | 수량(톤) | CFR($/톤) | 환율 | 선적일 | 도착예정일 | 상태
+상태를 색깔 배지로 표시해줘: 도착=초록, 운송중=주황, 선적=노랑, 계약=회색
+샘플 데이터 6개를 넣어줘.
+"+ 계약 등록" 버튼을 만들고, 클릭하면 입력 폼이 팝업으로 뜨게 해줘.
+등록/수정/삭제 모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">거래처 등록 / 수정 / 삭제가 되나요?</div>
-          <div class="check-item">공지사항 등록이 되나요?</div>
-          <div class="check-item">캘린더가 잘 표시되나요?</div>
+          <div class="check-item">KPI 카드 4개가 보이나요?</div>
+          <div class="check-item">막대+꺾은선 복합 차트가 표시되나요?</div>
+          <div class="check-item">도넛 차트에 등급별 비율이 보이나요?</div>
+          <div class="check-item">수입 현황 테이블에 색깔 배지가 표시되나요?</div>
+          <div class="check-item">계약 등록/수정/삭제가 되나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p>이 프롬프트가 길어 보이지만, 사실 <strong>"KPI → 차트 → 테이블 → 테이블"</strong> 4개 영역을 순서대로 설명한 것뿐입니다.
+            복잡해 보이는 화면도 <strong>위에서 아래로 한 영역씩 설명</strong>하면 됩니다. 이것이 "조각으로 나누기"의 힘이에요!</p>
         </div>
 
       </div>
@@ -1129,40 +1533,56 @@
           <h2>마무리 다듬기</h2>
           <div class="step-subtitle">"완성도를 높이자"</div>
         </div>
-        <div class="step-time">⏱️ 15분</div>
+        <div class="step-time">⏱️ 10분</div>
       </div>
       <div class="step-body">
 
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>한발 물러서 보기:</strong> 핵심 기능은 다 만들었습니다. 이제 "마무리 터치"를 해봅시다.
+              <span class="thought-example">💭 "팀 일정 탭도 채우고, 다크모드도 넣고, 보고서 내보내기 버튼도 넣으면 완성도가 올라가겠다"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 마무리 단계에서는 여러 요청을 <strong>한번에 묶어서</strong> 보내도 됩니다.
+              AI는 여러 작업을 동시에 처리할 수 있어요. <strong>"그리고"로 연결</strong>하면 됩니다.
+            </div>
+          </div>
+        </div>
+
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt7">아직 안 만든 탭들을 채우고, 전체적으로 다듬어줘.
+          <div class="prompt-box" id="prompt7">전체적으로 마무리 다듬기를 해줘.
 
-            1. 두 번째 탭 "등급별현황/수입관리":
-            - KPI 카드 4개 (구매량 총합, 누계 입고금액, 구매량/금액 비율, 국고하+선반설 비율)
-            - 월별 구매량 추이 차트 (막대+꺾은선 복합)
-            - 인천공장 배분 현황 도넛 차트 (등급별: 국고하, 국고중, 선반설, 국고상, 기타)
-            - 월별 구매실적 상세 테이블
-            - 수입 계약/운송 현황 테이블 (상태를 색깔 배지로: 도착=초록, 운송중=주황, 선적=노랑, 계약=회색)
+1. 세 번째 탭 "팀 일정":
+- 이번 달 캘린더 (달력 모양)
+- "이전/다음" 버튼으로 월 이동
+- "+ 일정 등록" 버튼: 클릭하면 팝업으로 팀원, 구분(휴가/출장/교육/외근), 시작일, 종료일 입력
+- 날짜 클릭하면 일정 추가할 수 있게
+- 등록된 일정은 캘린더에 색깔로 표시
+- localStorage에 저장
 
-            2. 다섯 번째 탭 "사용자관리":
-            - KPI 카드 4개 (전체/활성/관리자/비활성 사용자 수)
-            - 사용자 목록 테이블 + 등록 기능
-
-            3. 전체 다듬기:
-            - 헤더에 "보고서 내보내기" 오렌지색 버튼 추가
-            - 다크모드 토글 버튼 추가 (클릭하면 어두운 테마로)
-            - "로그아웃" 버튼 (클릭 시 확인창만 띄우기)
-            - "조회 연도" 드롭다운 (2024, 2025, 2026)
-            - 반응형: 넓은 화면은 가로, 좁은 화면은 세로
-            - 하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyPrompt('prompt7')">복사</button></div>
+2. 전체 다듬기:
+- 헤더에 "보고서 내보내기" 오렌지색 버튼 추가
+- 다크모드 토글 버튼 추가 (클릭하면 어두운 테마로)
+- "로그아웃" 버튼 (클릭 시 확인창만 띄우기)
+- "조회 연도" 드롭다운 (2024, 2025, 2026)
+- 반응형: 넓은 화면은 가로, 좁은 화면은 세로
+- 하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyPrompt('prompt7')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 최종 확인 체크리스트</h4>
-          <div class="check-item">5개 탭 모두 내용이 있나요?</div>
+          <div class="check-item">3개 탭 모두 내용이 있나요?</div>
           <div class="check-item">다크모드 전환이 되나요?</div>
           <div class="check-item">화면을 줄여도 깨지지 않나요?</div>
           <div class="check-item">엑셀 데이터 붙여넣기 후 차트가 자동으로 바뀌나요?</div>
+          <div class="check-item">팀 일정 캘린더가 잘 표시되나요?</div>
         </div>
 
       </div>
@@ -1206,6 +1626,74 @@
         <div class="trouble-prompt" id="fix5">저장 버튼을 눌러도 새로고침하면 데이터가 사라져요. localStorage에 저장하고 불러오는 부분을 확인해서 고쳐줘.<button
             class="copy-btn" onclick="copyData('fix5')">복사</button></div>
       </div>
+
+      <div class="trouble-item">
+        <h4>🤯 코드가 너무 길어서 AI가 중간에 끊겨요</h4>
+        <div class="trouble-prompt" id="fix6">이어서 작성해줘. 방금 끊긴 부분부터 계속해줘.<button class="copy-btn" onclick="copyData('fix6')">복사</button></div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 프롬프트 작성 요약 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="section-divider">프롬프트 작성 꿀팁 정리</div>
+
+    <div class="concept-box">
+      <h2>🎯 좋은 프롬프트의 5가지 원칙</h2>
+      <p style="margin-bottom: 16px;">오늘 실습에서 사용한 프롬프트들의 공통점을 정리합니다.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--green-bg); border-radius: 8px; border: 1px solid #A7F3D0;">
+          <span style="font-weight: 800; color: #065F46; font-size: 18px;">1</span>
+          <div>
+            <strong style="color: #065F46;">구체적인 숫자를 쓰세요</strong>
+            <div style="font-size: 13px; color: #047857; margin-top: 2px;">
+              ❌ "KPI 카드를 넣어줘" → ✅ "연간 목표: 272.5만 톤, 달성률: 103.3%"
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--blue-bg); border-radius: 8px; border: 1px solid #BFDBFE;">
+          <span style="font-weight: 800; color: #1E40AF; font-size: 18px;">2</span>
+          <div>
+            <strong style="color: #1E40AF;">번호를 매겨서 나열하세요</strong>
+            <div style="font-size: 13px; color: #1D4ED8; margin-top: 2px;">
+              ❌ "여러 기능을 만들어줘" → ✅ "1. 추가 버튼 2. 삭제 버튼 3. 검색 기능 4. 저장 기능"
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--purple-bg); border-radius: 8px; border: 1px solid #DDD6FE;">
+          <span style="font-weight: 800; color: #5B21B6; font-size: 18px;">3</span>
+          <div>
+            <strong style="color: #5B21B6;">데이터 형태를 명확히 알려주세요</strong>
+            <div style="font-size: 13px; color: #6D28D9; margin-top: 2px;">
+              ❌ "데이터를 넣을 수 있게 해줘" → ✅ "4줄짜리 데이터, 탭으로 구분, 순서: 인천계획/인천실적/포항계획/포항실적"
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--amber-bg); border-radius: 8px; border: 1px solid #FDE68A;">
+          <span style="font-weight: 800; color: #92400E; font-size: 18px;">4</span>
+          <div>
+            <strong style="color: #92400E;">색상 규칙을 지정해주세요</strong>
+            <div style="font-size: 13px; color: #B45309; margin-top: 2px;">
+              ❌ "예쁘게 만들어줘" → ✅ "도착=초록, 운송중=주황, 선적=노랑, 계약=회색"
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--teal-bg); border-radius: 8px; border: 1px solid #99F6E4;">
+          <span style="font-weight: 800; color: #0F766E; font-size: 18px;">5</span>
+          <div>
+            <strong style="color: #0F766E;">위에서 아래로 순서대로 설명하세요</strong>
+            <div style="font-size: 13px; color: #0D9488; margin-top: 2px;">
+              ❌ "대시보드를 만들어줘" → ✅ "상단에 KPI 카드 → 아래에 차트 2개 → 그 아래에 테이블"
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -1216,44 +1704,42 @@
       <h2>⭐ 보너스: 한 방에 전체를 만들고 싶다면?</h2>
       <p>시간이 부족하거나 단계별 실습이 어려우면, 이 프롬프트 <strong>하나</strong>로 전체를 만들 수 있습니다.</p>
       <div class="bonus-prompt-box" id="promptBonus">동국제강 원료기획팀용 업무 대시보드를 하나의 HTML 파일로 만들어줘.
-        서버나 데이터베이스 없이, 브라우저만으로 동작해야 해.
-        데이터 저장은 localStorage를 사용해줘.
-        차트는 Chart.js CDN을 사용해줘.
+서버나 데이터베이스 없이, 브라우저만으로 동작해야 해.
+데이터 저장은 localStorage를 사용해줘.
+차트는 Chart.js CDN을 사용해줘.
 
-        디자인: 네이비(#1B2A4A) 헤더, 오렌지(#E67E22) 포인트, 밝은 회색(#F4F6F9) 배경
-        상단 헤더에 "DK 동국제강" 로고, 날짜, 조회연도 선택, 팀명, 다크모드 토글, 로그아웃
+디자인: 네이비(#1B2A4A) 헤더, 오렌지(#E67E22) 포인트, 밝은 회색(#F4F6F9) 배경
+상단 헤더에 "DK 동국제강" 로고, 날짜, 조회연도 선택, 팀명, 다크모드 토글, 로그아웃
 
-        5개 탭 메뉴:
+3개 탭 메뉴:
 
-        1. 부재료실적 모니터링
-        - KPI 카드 4개 (연간목표 272.5만톤, 누계실적 281.5만톤, 달성률 103.3%, 거래처성과율 90.4%)
-        - 월별 계획 대비 실적 막대차트 (1~12월, 실적=주황, 계획=네이비)
-        - 월별 거래처 납품 추이 꺾은선 차트 (3개 거래처)
-        - 핵심 체크 포인트 카드
-        - 엑셀 데이터 붙여넣기 기능: textarea에 탭 구분 데이터를 붙여넣으면 차트와 KPI 자동 갱신 (인천/포항 계획 실적 4줄 형태)
-        - 거래처 납품 실적 데이터도 엑셀 5개열(전기일/공급업체/검수등급/입고량/입고금액) 붙여넣기 가능
-        - 100건 단위 페이지네이션
+1. 부재료실적 모니터링
+- KPI 카드 4개 (연간목표 272.5만톤, 누계실적 281.5만톤, 달성률 103.3%, 거래처성과율 90.4%)
+- 월별 계획 대비 실적 막대차트 (1~12월, 실적=주황, 계획=네이비)
+- 월별 거래처 납품 추이 꺾은선 차트 (3개 거래처)
+- 핵심 체크 포인트 카드
+- 엑셀 데이터 붙여넣기: textarea에 탭 구분 데이터(인천/포항 계획 실적 4줄) 붙여넣으면 차트와 KPI 자동 갱신
+- 거래처 납품 실적 데이터도 엑셀 5개열(전기일/공급업체/검수등급/입고량/입고금액) 붙여넣기 가능
+- 검수 등급 매핑 관리: 품명(검수등급명)을 국고상/국고중/국고하/선반설로 자동 분류
+  기본 매핑: 국고상(생철A,생철B,생철AL,슈레더B), 국고중(중량A,중량AS,중AL,중량ALC,중량BS,모터블럭), 국고하(중량B,경량A,경량B,경량L,길로틴A,길로틴B,절단S,압축A,압축B,슈레더C,중량BLS,중량C,경량C,경량T,경량TC,경량S,중량BLC,중BL), 선반설(선반A,선반C,압축C,압축D)
+- 매핑 추가/삭제/검색/초기화 기능, 100건 단위 페이지네이션
 
-        2. 등급별현황/수입관리
-        - KPI 카드 4개
-        - 월별 구매량 추이 복합차트 (막대+꺾은선)
-        - 인천공장 배분 도넛 차트 (등급별)
-        - 수입 계약/운송 현황 테이블 (상태 배지)
+2. 등급별현황/수입관리
+- KPI 카드 4개 (구매량총합, 누계입고금액, 구매량/금액비율, 국고하+선반설비율)
+- 월별 구매량 추이 복합차트 (등급별 막대 + 합계 꺾은선)
+- 인천공장 배분 도넛 차트 (등급별)
+- 월별 구매실적 상세 테이블
+- 수입 계약/운송 현황 테이블 (상태 배지: 도착=초록, 운송중=주황, 선적=노랑, 계약=회색)
+- 계약 등록/수정/삭제 기능
 
-        3. 거래처 관리
-        - KPI 카드 4개 + 거래처 목록 테이블 (8개 샘플)
-        - 등록/수정/삭제 기능 (모달 팝업)
+3. 팀 일정
+- 월간 캘린더 (이전/다음 월 이동)
+- 일정 등록: 팀원, 구분(휴가/출장/교육/외근), 시작일, 종료일
+- 날짜 클릭으로 일정 추가, 색깔 구분 표시
 
-        4. 공지사항
-        - 좌측: 공지사항 게시판 (등록 기능)
-        - 우측: 팀 일정관리 캘린더
-
-        5. 사용자관리
-        - 사용자 목록 테이블 + 등록 기능
-
-        모든 데이터는 localStorage에 저장.
-        반응형 디자인 (넓으면 가로, 좁으면 세로).
-        하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyData('promptBonus')">복사</button></div>
+모든 데이터는 localStorage에 저장.
+반응형 디자인 (넓으면 가로, 좁으면 세로).
+하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyData('promptBonus')">복사</button></div>
     </div>
 
 
@@ -1268,6 +1754,10 @@
         <div class="glossary-item">
           <div class="glossary-term">바이브코딩</div>
           <div class="glossary-def">AI에게 말로 설명해서 코드를 만드는 방식</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">프롬프트</div>
+          <div class="glossary-def">AI에게 보내는 요청/지시 문장. 구체적일수록 좋다!</div>
         </div>
         <div class="glossary-item">
           <div class="glossary-term">HTML</div>
@@ -1294,12 +1784,8 @@
           <div class="glossary-def">인터넷에서 도구를 빌려오는 방식 (주소 한 줄이면 OK)</div>
         </div>
         <div class="glossary-item">
-          <div class="glossary-term">CRUD</div>
-          <div class="glossary-def">만들기(Create) · 보기(Read) · 수정(Update) · 삭제(Delete)</div>
-        </div>
-        <div class="glossary-item">
-          <div class="glossary-term">프롬프트</div>
-          <div class="glossary-def">AI에게 보내는 요청/지시 문장</div>
+          <div class="glossary-term">KPI 카드</div>
+          <div class="glossary-def">핵심 지표를 큰 숫자로 보여주는 대시보드 구성 요소</div>
         </div>
         <div class="glossary-item">
           <div class="glossary-term">반응형</div>
@@ -1317,7 +1803,6 @@
   <script>
     function copyPrompt(id) {
       const el = document.getElementById(id);
-      // Get text content excluding the button text
       const btn = el.querySelector('.copy-btn');
       const text = el.textContent.replace(btn ? btn.textContent : '', '').trim();
       navigator.clipboard.writeText(text).then(() => {
