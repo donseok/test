@@ -1604,84 +1604,88 @@
             <button class="copy-btn" style="position: static; margin-left: 12px;" onclick="copyTestDataNumbers()">숫자 전체 복사</button>
           </div>
           <div style="overflow-x: auto; margin-top: 8px;">
-            <table style="border-collapse: collapse; font-size: 12px; width: 100%;">
+            <table style="border-collapse: collapse; font-size: 11px; width: 100%; table-layout: fixed;">
+              <colgroup>
+                <col style="width: 66px;">
+                <col span="12">
+              </colgroup>
               <thead>
                 <tr style="background: #1B2A4A; color: #fff; user-select: none;">
-                  <th style="padding: 6px 10px; border: 1px solid #374151; text-align: center; white-space: nowrap; min-width: 100px;">구분</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">1월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">2월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">3월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">4월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">5월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">6월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">7월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">8월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">9월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">10월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">11월</th>
-                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">12월</th>
+                  <th style="padding: 4px 4px; border: 1px solid #374151; text-align: center; white-space: nowrap;">구분</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">1월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">2월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">3월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">4월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">5월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">6월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">7월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">8월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">9월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">10월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">11월</th>
+                  <th style="padding: 4px 2px; border: 1px solid #374151; text-align: center;">12월</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #FFFDE7;">
-                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">인천 계획</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">120,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">120,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">125,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">135,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">115,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">115,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 4px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">인천 계획</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">120,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">120,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">125,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">135,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">115,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">115,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">140,000</td>
                 </tr>
                 <tr style="background: #fff;">
-                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">인천 실적</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">127,063</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">112,223</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">121,629</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">119,461</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">118,783</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">148,765</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">159,953</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">142,029</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">124,798</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">141,347</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">124,439</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">133,081</td>
+                  <td style="padding: 4px 4px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">인천 실적</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">127,063</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">112,223</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">121,629</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">119,461</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">118,783</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">148,765</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">159,953</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">142,029</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">124,798</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">141,347</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">124,439</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">133,081</td>
                 </tr>
                 <tr style="background: #FFFDE7;">
-                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">포항 계획</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">100,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">85,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">90,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">60,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,000</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
+                  <td style="padding: 4px 4px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">포항 계획</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">100,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">105,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">85,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">90,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">60,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,000</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">95,000</td>
                 </tr>
                 <tr style="background: #fff;">
-                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">포항 실적</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">111,756</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">94,104</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,552</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">94,741</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,083</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,615</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,992</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">104,927</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">100,542</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">111,148</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">106,371</td>
-                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">84,476</td>
+                  <td style="padding: 4px 4px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap; user-select: none;">포항 실적</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">111,756</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">94,104</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,552</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">94,741</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,083</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">107,615</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">110,992</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">104,927</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">100,542</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">111,148</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">106,371</td>
+                  <td style="padding: 4px 3px; border: 1px solid #D1D5DB; text-align: right; user-select: all; cursor: text;">84,476</td>
                 </tr>
               </tbody>
             </table>
