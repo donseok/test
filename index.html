@@ -2000,6 +2000,155 @@
 
 
     <!-- ═══════════════════════════════════════ -->
+    <!-- STEP 8 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="section-divider">등급별현황/수입관리 탭 개발</div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">8</div>
+        <div class="step-title-area">
+          <h2>등급별현황 KPI 카드 4개</h2>
+          <div class="step-subtitle">"두 번째 탭의 핵심 지표를 만들자"</div>
+        </div>
+        <div class="step-time">⏱️ 10분</div>
+      </div>
+      <div class="step-body">
+
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 등급별현황 탭에도 핵심 숫자가 한눈에 보여야 합니다.
+              <span class="thought-example">💭 "구매량, 금액, 단가, 등급 비율 — 4개 KPI 카드가 상단에 나란히"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 이 KPI는 <strong>거래처 납품 실적 데이터(Step 6)</strong>에서 자동 계산됩니다. 납품 데이터가 없으면 안내 메시지를 보여주면 됩니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt8">두 번째 탭 "등급별현황/수입관리" 상단에 KPI 카드 4개를 만들어줘.
+이 KPI는 거래처 납품 실적 데이터(localStorage에 저장된 인천공장 납품 데이터)를 기반으로 자동 계산해줘.
+
+KPI 카드 4개:
+1. 월별 구매량 총합: 전체 입고량 합계 (톤 단위, 천 단위 콤마)
+2. 누계 입고금액: 전체 입고금액 합계 (억 원 단위로 변환, 소수점 1자리)
+3. 평균매입단가: (입고금액 총합 / 입고량 총합) (백만원 단위, 소수점 2자리)
+4. 국고하+선반설 비율: 검수등급 매핑을 적용해서, 국고하+선반설에 해당하는 입고량이 전체에서 차지하는 비율 (%)
+
+중요한 점:
+1. 납품 데이터가 없으면 "납품 데이터를 먼저 입력해주세요"라고 안내 표시
+2. 검수등급 매핑 데이터(localStorage)를 읽어서 품명 → 등급 변환 후 계산
+3. 납품 데이터가 저장/갱신되면 KPI도 자동으로 갱신
+4. 카드 디자인은 1번 탭 KPI 카드와 동일한 스타일로 통일
+
+카드 스타일:
+- 흰색 배경, 둥근 모서리 (border-radius: 12px), 그림자
+- 큰 숫자는 굵고 크게, 단위는 숫자 옆에 작은 글씨
+- 설명은 아래에 작은 회색 글씨
+- 4개가 가로로 나란히, 화면 좁으면 2×2로<button class="copy-btn" onclick="copyPrompt('prompt8')">복사</button></div>
+        </div>
+
+        <div class="check-section">
+          <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">KPI 카드 4개가 보이나요?</div>
+          <div class="check-item">납품 데이터가 있으면 숫자가 자동 계산되나요?</div>
+          <div class="check-item">국고하+선반설 비율이 매핑 데이터 기반으로 계산되나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p>이 KPI는 <strong>두 가지 데이터를 조합</strong>해서 만듭니다: ① 납품 실적 데이터 + ② 검수 등급 매핑.
+            프롬프트에서 "어디서 데이터를 읽어야 하는지"를 명확히 알려주는 것이 핵심이에요!</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- STEP 9 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">9</div>
+        <div class="step-title-area">
+          <h2>월별 구매실적 상세 테이블</h2>
+          <div class="step-subtitle">"월별 데이터를 한눈에 정리하자"</div>
+        </div>
+        <div class="step-time">⏱️ 10분</div>
+      </div>
+      <div class="step-body">
+
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> 월별로 입고량, 금액, 단가, 거래처 수를 한 테이블에서 보고 싶습니다.
+              <span class="thought-example">💭 "1월~12월 행, 열은 입고량/입고금액/평균단가/거래처수"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 납품 실적 데이터의 <strong>전기일(날짜)을 월별로 그룹핑</strong>해서 자동 집계하는 것이 핵심!
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt9">등급별현황/수입관리 탭의 KPI 카드 아래에 "월별 구매실적 상세" 테이블을 추가해줘.
+이 테이블은 거래처 납품 실적 데이터(localStorage)를 월별로 집계해서 자동으로 표시해줘.
+
+테이블 구성:
+- 열: 월 | 입고량(톤) | 입고금액(원) | 평균 단가 | 거래처 수
+- 행: 1월 ~ 12월 (전기일의 월을 기준으로 그룹핑)
+- 각 열은 정렬 가능하게 (헤더 클릭 시 오름차순/내림차순 토글)
+
+계산 방법:
+- 입고량: 해당 월의 입고량 합계
+- 입고금액: 해당 월의 입고금액 합계
+- 평균 단가: 해당 월 (입고금액 합계 / 입고량 합계), 소수점 1자리
+- 거래처 수: 해당 월의 고유한 공급업체명 개수
+
+테이블 디자인:
+- 헤더: 진한 남색(#1B2A4A) 배경, 흰색 글씨, 정렬 화살표 아이콘
+- 짝수/홀수 행 배경색 구분
+- 숫자는 오른쪽 정렬, 천 단위 콤마
+- 설명 텍스트: 테이블 우측 상단에 "월별 입고량/입고금액 raw data 합계입니다." 작은 회색 글씨
+
+데이터가 없으면 "납품 데이터를 먼저 입력해주세요"라고 안내해줘.
+납품 데이터가 저장/갱신되면 이 테이블도 자동으로 갱신되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt9')">복사</button></div>
+        </div>
+
+        <div class="check-section">
+          <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">월별 구매실적 테이블이 보이나요?</div>
+          <div class="check-item">헤더 클릭 시 정렬이 되나요?</div>
+          <div class="check-item">평균 단가가 자동 계산되나요?</div>
+          <div class="check-item">납품 데이터를 바꾸면 테이블도 자동 갱신되나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p>이 테이블은 <strong>"날짜 기준 그룹핑"</strong>이 핵심입니다. 전기일에서 월을 추출해서 같은 월끼리 묶고 합산하는 거예요.
+            "정렬 가능"도 지정했더니, AI가 헤더 클릭 이벤트를 자동으로 만들어줍니다!</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
     <!-- 트러블슈팅 -->
     <!-- ═══════════════════════════════════════ -->
     <div class="section-divider">잘 안 될 때</div>
@@ -2271,6 +2420,8 @@
         ['📋 상세 테이블 완성!', '데이터가 하나로 연결됐어요'],
         ['🔥 대량 데이터 정복!', '2만 건도 거뜬해요'],
         ['🎯 등급 매핑 완료!', '자동 분류의 힘'],
+        ['📊 등급별 KPI 완성!', '두 번째 탭도 살아났어요'],
+        ['📋 구매실적 테이블!', '월별 데이터가 한눈에'],
         ['🏆 전체 미션 완료!', '바이브코딩 마스터 달성!']
       ];
 
