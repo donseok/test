@@ -1107,8 +1107,8 @@
       80% { transform: translateX(6px); }
     }
 
-    /* ── RPS GAME MODAL ── */
-    .rps-overlay {
+    /* ── PASSWORD MODAL ── */
+    .pw-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.7);
@@ -1124,11 +1124,11 @@
       from { opacity: 0; } to { opacity: 1; }
     }
 
-    .rps-modal {
+    .pw-modal {
       background: white;
       border-radius: 24px;
       padding: 36px 40px;
-      max-width: 480px;
+      max-width: 420px;
       width: 90%;
       text-align: center;
       box-shadow: 0 30px 80px rgba(0,0,0,0.4);
@@ -1140,171 +1140,91 @@
       to { transform: scale(1) translateY(0); opacity: 1; }
     }
 
-    .rps-title {
+    .pw-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .pw-title {
       font-size: 22px;
       font-weight: 900;
       color: var(--navy);
       margin-bottom: 6px;
     }
 
-    .rps-subtitle {
+    .pw-subtitle {
       font-size: 14px;
       color: var(--gray-500);
       margin-bottom: 28px;
     }
 
-    .rps-arena {
+    .pw-digits {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 28px;
-      min-height: 100px;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
-    .rps-player {
-      text-align: center;
-    }
-
-    .rps-player-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gray-500);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .rps-hand {
-      font-size: 64px;
-      line-height: 1;
-      transition: transform 0.3s;
-    }
-
-    .rps-hand.shake-anim {
-      animation: rps-shake 0.4s ease-in-out;
-    }
-
-    @keyframes rps-shake {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-20px); }
-      50% { transform: translateY(0); }
-      75% { transform: translateY(-15px); }
-    }
-
-    .rps-vs {
+    .pw-digit {
+      width: 56px;
+      height: 64px;
+      border: 3px solid var(--gray-200);
+      border-radius: 16px;
+      background: var(--gray-50);
       font-size: 28px;
       font-weight: 900;
-      color: var(--orange);
-    }
-
-    .rps-choices {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .rps-choice-btn {
-      width: 90px;
-      height: 90px;
-      border-radius: 20px;
-      border: 3px solid var(--gray-200);
-      background: var(--gray-50);
-      font-size: 44px;
-      cursor: pointer;
+      text-align: center;
+      color: var(--navy);
+      font-family: 'Noto Sans KR', sans-serif;
       transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      outline: none;
+      caret-color: var(--orange);
     }
 
-    .rps-choice-btn:hover {
+    .pw-digit:focus {
       border-color: var(--orange);
       background: #FFF7ED;
-      transform: translateY(-4px) scale(1.08);
-      box-shadow: 0 8px 20px rgba(230,126,34,0.2);
+      box-shadow: 0 4px 12px rgba(230,126,34,0.2);
     }
 
-    .rps-choice-btn:active {
-      transform: translateY(0) scale(0.95);
+    .pw-digit.correct {
+      border-color: var(--green);
+      background: var(--green-bg);
     }
 
-    .rps-choice-label {
-      position: absolute;
-      bottom: -22px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 12px;
+    .pw-digit.wrong {
+      border-color: var(--red);
+      background: var(--red-bg);
+      animation: pw-shake 0.5s;
+    }
+
+    @keyframes pw-shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .pw-result {
+      font-size: 15px;
       font-weight: 700;
-      color: var(--gray-500);
-      white-space: nowrap;
-    }
-
-    .rps-result {
-      font-size: 26px;
-      font-weight: 900;
-      margin-bottom: 8px;
-      min-height: 36px;
-    }
-
-    .rps-result.win { color: var(--green); }
-    .rps-result.lose { color: var(--red); }
-    .rps-result.draw { color: var(--orange); }
-
-    .rps-result-sub {
-      font-size: 14px;
-      color: var(--gray-500);
       margin-bottom: 20px;
-      min-height: 20px;
+      min-height: 24px;
+      transition: all 0.3s;
     }
 
-    .rps-actions {
+    .pw-result.success { color: var(--green); }
+    .pw-result.error { color: var(--red); }
+
+    .pw-actions {
       display: flex;
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .rps-retry-btn {
-      background: var(--navy);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.2s;
-    }
-
-    .rps-retry-btn:hover {
-      background: var(--navy-light);
-      transform: translateY(-2px);
-    }
-
-    .rps-force-btn {
-      background: none;
-      color: var(--gray-400);
-      border: 1px dashed var(--gray-300);
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.2s;
-    }
-
-    .rps-force-btn:hover {
-      background: var(--amber-bg);
-      border-color: var(--amber);
-      color: var(--amber);
-    }
-
-    .rps-close-btn {
+    .pw-close-btn {
       background: var(--gray-200);
       color: var(--gray-600);
       border: none;
@@ -1317,27 +1237,9 @@
       transition: all 0.2s;
     }
 
-    .rps-close-btn:hover {
+    .pw-close-btn:hover {
       background: var(--gray-300);
     }
-
-    .rps-score {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 20px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .rps-score span {
-      padding: 4px 14px;
-      border-radius: 8px;
-    }
-
-    .rps-score .wins { background: var(--green-bg); color: #065F46; }
-    .rps-score .losses { background: var(--red-bg); color: #991B1B; }
-    .rps-score .draws { background: var(--amber-bg); color: #92400E; }
 
     .reset-all-btn {
       background: none;
@@ -2508,170 +2410,96 @@
         updateProgress(unlocked.length);
         updateButtons(unlocked);
 
-        // ── 가위바위보 게임 ──
-        const RPS = ['✊', '✌️', '🖐️'];
-        const RPS_NAME = ['바위', '가위', '보'];
-        let rpsStats = { wins: 0, losses: 0, draws: 0 };
+        // ── 암호 입력 시스템 ──
+        const STEP_PASSWORDS = ['8273', '4916', '3748', '6052', '9381', '2647', '5839', '7264'];
 
-        function rpsResult(player, computer) {
-          if (player === computer) return 'draw';
-          if ((player === 0 && computer === 1) ||
-              (player === 1 && computer === 2) ||
-              (player === 2 && computer === 0)) return 'win';
-          return 'lose';
-        }
-
-        function openRpsGame(stepIdx) {
+        function openPasswordModal(stepIdx) {
           const overlay = document.createElement('div');
-          overlay.className = 'rps-overlay';
+          overlay.className = 'pw-overlay';
+          const stepLabel = stepIdx < stepCards.length ? 'Step ' + (stepIdx + 1) : '보너스';
           overlay.innerHTML =
-            '<div class="rps-modal">' +
-              '<div class="rps-title">✊✌️🖐️ 가위바위보!</div>' +
-              '<div class="rps-subtitle">Step ' + (stepIdx < stepCards.length ? (stepIdx + 1) : '보너스') + ' 프롬프트를 열려면 이겨야 합니다!</div>' +
-              '<div class="rps-score">' +
-                '<span class="wins">승 ' + rpsStats.wins + '</span>' +
-                '<span class="draws">무 ' + rpsStats.draws + '</span>' +
-                '<span class="losses">패 ' + rpsStats.losses + '</span>' +
+            '<div class="pw-modal">' +
+              '<div class="pw-icon">🔐</div>' +
+              '<div class="pw-title">암호를 입력하세요</div>' +
+              '<div class="pw-subtitle">' + stepLabel + ' 프롬프트를 열려면 4자리 암호가 필요합니다!</div>' +
+              '<div class="pw-digits">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
               '</div>' +
-              '<div class="rps-arena">' +
-                '<div class="rps-player">' +
-                  '<div class="rps-player-label">나</div>' +
-                  '<div class="rps-hand" id="rps-my-hand">❓</div>' +
-                '</div>' +
-                '<div class="rps-vs">VS</div>' +
-                '<div class="rps-player">' +
-                  '<div class="rps-player-label">AI</div>' +
-                  '<div class="rps-hand" id="rps-ai-hand">❓</div>' +
-                '</div>' +
-              '</div>' +
-              '<div class="rps-result" id="rps-result"></div>' +
-              '<div class="rps-result-sub" id="rps-result-sub">아래에서 하나를 선택하세요!</div>' +
-              '<div class="rps-choices" id="rps-choices">' +
-                '<button class="rps-choice-btn" data-rps="0">✊<span class="rps-choice-label">바위</span></button>' +
-                '<button class="rps-choice-btn" data-rps="1">✌️<span class="rps-choice-label">가위</span></button>' +
-                '<button class="rps-choice-btn" data-rps="2">🖐️<span class="rps-choice-label">보</span></button>' +
-              '</div>' +
-              '<div class="rps-actions" id="rps-actions" style="margin-top: 12px;">' +
-                '<button class="rps-close-btn" id="rps-cancel">돌아가기</button>' +
-                '<button class="rps-force-btn" id="rps-force">🏳️ 무조건 이기기</button>' +
+              '<div class="pw-result" id="pw-result"></div>' +
+              '<div class="pw-actions">' +
+                '<button class="pw-close-btn" id="pw-cancel">돌아가기</button>' +
               '</div>' +
             '</div>';
           document.body.appendChild(overlay);
 
-          const myHand = overlay.querySelector('#rps-my-hand');
-          const aiHand = overlay.querySelector('#rps-ai-hand');
-          const resultEl = overlay.querySelector('#rps-result');
-          const resultSub = overlay.querySelector('#rps-result-sub');
-          const choices = overlay.querySelector('#rps-choices');
-          const actions = overlay.querySelector('#rps-actions');
-          let playing = false;
+          const digits = overlay.querySelectorAll('.pw-digit');
+          const resultEl = overlay.querySelector('#pw-result');
 
-          function doPlay(playerChoice, forceWin) {
-            if (playing) return;
-            playing = true;
-            choices.style.pointerEvents = 'none';
-            choices.style.opacity = '0.4';
+          setTimeout(function() { digits[0].focus(); }, 100);
 
-            // Shake animation
-            myHand.textContent = '❓';
-            aiHand.textContent = '❓';
-            myHand.classList.add('shake-anim');
-            aiHand.classList.add('shake-anim');
-            resultEl.textContent = '';
-            resultSub.textContent = '두구두구두구... 🥁';
-
-            let flickerCount = 0;
-            const flickerInterval = setInterval(() => {
-              myHand.textContent = RPS[Math.floor(Math.random() * 3)];
-              aiHand.textContent = RPS[Math.floor(Math.random() * 3)];
-              flickerCount++;
-              if (flickerCount > 12) clearInterval(flickerInterval);
-            }, 80);
-
-            setTimeout(() => {
-              clearInterval(flickerInterval);
-              myHand.classList.remove('shake-anim');
-              aiHand.classList.remove('shake-anim');
-
-              let computerChoice;
-              if (forceWin) {
-                // Player always wins
-                computerChoice = (playerChoice + 1) % 3;
-              } else {
-                computerChoice = Math.floor(Math.random() * 3);
+          digits.forEach(function(input, i) {
+            input.addEventListener('input', function() {
+              this.value = this.value.replace(/[^0-9]/g, '');
+              if (this.value && i < 3) {
+                digits[i + 1].focus();
               }
-
-              myHand.textContent = RPS[playerChoice];
-              aiHand.textContent = RPS[computerChoice];
-
-              const result = forceWin ? 'win' : rpsResult(playerChoice, computerChoice);
-
-              if (result === 'win') {
-                rpsStats.wins++;
-                resultEl.className = 'rps-result win';
-                resultEl.textContent = '🎉 승리! 프롬프트 오픈!';
-                resultSub.textContent = RPS_NAME[playerChoice] + '(이)가 ' + RPS_NAME[computerChoice] + '을(를) 이겼어요!';
-                if (forceWin) resultSub.textContent = '💪 무적 모드 발동!';
-
-                setTimeout(() => {
-                  overlay.remove();
-                  doUnlock(stepIdx);
-                }, 1200);
-
-              } else if (result === 'lose') {
-                rpsStats.losses++;
-                resultEl.className = 'rps-result lose';
-                resultEl.textContent = '😭 패배! 다시 도전!';
-                resultSub.textContent = RPS_NAME[computerChoice] + '(이)가 ' + RPS_NAME[playerChoice] + '을(를) 이겼어요...';
-
-                setTimeout(() => {
-                  playing = false;
-                  choices.style.pointerEvents = 'auto';
-                  choices.style.opacity = '1';
-                  updateScoreDisplay(overlay);
-                }, 1000);
-
-              } else {
-                rpsStats.draws++;
-                resultEl.className = 'rps-result draw';
-                resultEl.textContent = '🤝 비겼다! 다시!';
-                resultSub.textContent = '둘 다 ' + RPS_NAME[playerChoice] + '! 한 번 더!';
-
-                setTimeout(() => {
-                  playing = false;
-                  choices.style.pointerEvents = 'auto';
-                  choices.style.opacity = '1';
-                  updateScoreDisplay(overlay);
-                }, 1000);
+              var code = Array.from(digits).map(function(d) { return d.value; }).join('');
+              if (code.length === 4) {
+                checkPassword(code, stepIdx, overlay, digits, resultEl);
               }
-            }, 1200);
-          }
+            });
 
-          function updateScoreDisplay(ov) {
-            const w = ov.querySelector('.wins');
-            const l = ov.querySelector('.losses');
-            const d = ov.querySelector('.draws');
-            if (w) w.textContent = '승 ' + rpsStats.wins;
-            if (l) l.textContent = '패 ' + rpsStats.losses;
-            if (d) d.textContent = '무 ' + rpsStats.draws;
-          }
+            input.addEventListener('keydown', function(e) {
+              if (e.key === 'Backspace' && !this.value && i > 0) {
+                digits[i - 1].focus();
+                digits[i - 1].value = '';
+              }
+            });
 
-          choices.addEventListener('click', function (e) {
-            const btn = e.target.closest('.rps-choice-btn');
-            if (!btn) return;
-            doPlay(parseInt(btn.dataset.rps), false);
+            input.addEventListener('paste', function(e) {
+              e.preventDefault();
+              var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '').slice(0, 4);
+              for (var j = 0; j < pasted.length && j < 4; j++) {
+                digits[j].value = pasted[j];
+              }
+              if (pasted.length === 4) {
+                checkPassword(pasted, stepIdx, overlay, digits, resultEl);
+              } else if (pasted.length > 0) {
+                digits[Math.min(pasted.length, 3)].focus();
+              }
+            });
           });
 
-          overlay.querySelector('#rps-force').addEventListener('click', function () {
-            const randomChoice = Math.floor(Math.random() * 3);
-            doPlay(randomChoice, true);
-          });
+          function checkPassword(code, idx, ov, digs, resEl) {
+            var correct = STEP_PASSWORDS[idx] || '0000';
+            if (code === correct) {
+              digs.forEach(function(d) { d.classList.add('correct'); d.disabled = true; });
+              resEl.className = 'pw-result success';
+              resEl.textContent = '🎉 정답! 프롬프트 오픈!';
+              setTimeout(function() {
+                ov.remove();
+                doUnlock(idx);
+              }, 1000);
+            } else {
+              digs.forEach(function(d) { d.classList.add('wrong'); });
+              resEl.className = 'pw-result error';
+              resEl.textContent = '❌ 암호가 틀렸습니다. 다시 시도하세요!';
+              setTimeout(function() {
+                digs.forEach(function(d) { d.classList.remove('wrong'); d.value = ''; });
+                resEl.textContent = '';
+                digs[0].focus();
+              }, 1000);
+            }
+          }
 
-          overlay.querySelector('#rps-cancel').addEventListener('click', function () {
+          overlay.querySelector('#pw-cancel').addEventListener('click', function() {
             overlay.remove();
           });
 
-          overlay.addEventListener('click', function (e) {
+          overlay.addEventListener('click', function(e) {
             if (e.target === overlay) overlay.remove();
           });
         }
@@ -2710,7 +2538,7 @@
             return;
           }
 
-          openRpsGame(idx);
+          openPasswordModal(idx);
         });
       }
 
