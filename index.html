@@ -841,6 +841,307 @@
       background: #DBEAFE;
     }
 
+    /* ── UNLOCK SYSTEM ── */
+    .progress-bar-container {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 28px;
+      margin-bottom: 24px;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+    }
+
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .progress-title-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .progress-counter {
+      background: var(--orange);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .progress-track {
+      background: var(--gray-200);
+      border-radius: 10px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(90deg, var(--orange), var(--orange-light), #E74C3C);
+      background-size: 200% 100%;
+      animation: shimmer 2s linear infinite;
+      height: 100%;
+      border-radius: 10px;
+      width: 0%;
+      transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .progress-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-400);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .progress-dot.unlocked {
+      background: var(--green);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .progress-dot.current {
+      background: var(--orange);
+      color: white;
+      animation: pulse-dot 1.5s infinite;
+      transform: scale(1.15);
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(230,126,34,0.5); }
+      50% { box-shadow: 0 0 0 10px rgba(230,126,34,0); }
+    }
+
+    .locked-overlay {
+      position: relative;
+      min-height: 120px;
+      margin-bottom: 24px;
+    }
+
+    .locked-overlay .prompt-section,
+    .locked-overlay .data-section {
+      filter: blur(10px);
+      user-select: none;
+      pointer-events: none;
+      transition: filter 0.6s ease, opacity 0.6s ease;
+      opacity: 0.5;
+    }
+
+    .locked-overlay.unlocked .prompt-section,
+    .locked-overlay.unlocked .data-section {
+      filter: none;
+      user-select: auto;
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    .lock-screen {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .locked-overlay.unlocked .lock-screen {
+      opacity: 0;
+      transform: scale(0.7) rotateY(90deg);
+      pointer-events: none;
+    }
+
+    .lock-icon {
+      font-size: 52px;
+      margin-bottom: 12px;
+      animation: float-lock 2.5s ease-in-out infinite;
+    }
+
+    @keyframes float-lock {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-6px) rotate(-3deg); }
+      75% { transform: translateY(-6px) rotate(3deg); }
+    }
+
+    .unlock-btn {
+      background: linear-gradient(135deg, var(--orange), #D35400);
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(230,126,34,0.35);
+      letter-spacing: 0.5px;
+    }
+
+    .unlock-btn:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(230,126,34,0.45);
+    }
+
+    .unlock-btn:active:not(:disabled) {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .unlock-btn.next-available {
+      animation: glow-pulse 2s infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(230,126,34,0.35); }
+      50% { box-shadow: 0 6px 30px rgba(230,126,34,0.6), 0 0 40px rgba(230,126,34,0.2); }
+    }
+
+    .unlock-btn:disabled {
+      background: var(--gray-300);
+      cursor: not-allowed;
+      box-shadow: none;
+      animation: none;
+    }
+
+    .lock-message {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    .confetti-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      opacity: 0;
+      animation: confetti-fall 2s ease-out forwards;
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      50% { opacity: 1; }
+      100% { transform: translateY(105vh) rotate(1080deg) scale(0.5); opacity: 0; }
+    }
+
+    .unlock-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: white;
+      padding: 28px 48px;
+      border-radius: 20px;
+      font-size: 24px;
+      font-weight: 900;
+      z-index: 10000;
+      text-align: center;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+      animation: toast-pop 2s ease-out forwards;
+      white-space: nowrap;
+    }
+
+    .unlock-toast .toast-sub {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    @keyframes toast-pop {
+      0% { transform: translate(-50%, -50%) scale(0) rotate(-10deg); }
+      15% { transform: translate(-50%, -50%) scale(1.15) rotate(2deg); }
+      30% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      75% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .reset-all-btn {
+      background: none;
+      border: 1px solid var(--gray-300);
+      color: var(--gray-500);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--red-bg);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .step-card.step-completed {
+      border-color: var(--green) !important;
+    }
+
+    .step-card.step-completed .step-header {
+      position: relative;
+    }
+
+    .step-card.step-completed .step-header::after {
+      content: '✅';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+    }
+
     /* ── PRINT ── */
     @media print {
       body {
@@ -1817,6 +2118,226 @@
         }
       });
     }
+  </script>
+
+  <script>
+    // ── 🎮 순차 잠금해제 시스템 ──
+    (function () {
+      const STORAGE_KEY = 'workshop_unlocked_steps';
+      const stepCards = Array.from(document.querySelectorAll('.step-card'));
+      const bonusSection = document.querySelector('.bonus-section');
+      const totalSteps = stepCards.length + (bonusSection ? 1 : 0);
+
+      const messages = [
+        ['🚀 시작이 반이다!', '첫 뼈대를 세웠어요'],
+        ['💪 속도가 붙었어요!', 'KPI 카드 마스터'],
+        ['📊 차트 장인 등극!', '데이터를 시각화하는 힘'],
+        ['⭐ 하이라이트 미션!', '엑셀 연동의 마법'],
+        ['🎯 등급 분류 전문가!', '매핑의 세계에 오신 걸 환영합니다'],
+        ['🔥 거의 다 왔어요!', '두 번째 탭도 정복'],
+        ['🎉 마무리 터치!', '완성도가 달라집니다'],
+        ['🏆 전체 미션 완료!', '바이브코딩 마스터 달성!']
+      ];
+
+      const confettiColors = ['#E67E22', '#F5B041', '#3B82F6', '#10B981', '#8B5CF6', '#EF4444', '#1B2A4A', '#F39C12', '#2ECC71'];
+
+      function getUnlocked() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+        catch { return []; }
+      }
+
+      function saveUnlocked(steps) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(steps));
+      }
+
+      function createConfetti() {
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+
+        const shapes = ['■', '●', '▲', '★', '♦', '❤', '✦'];
+        for (let i = 0; i < 60; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+          piece.style.left = Math.random() * 100 + '%';
+          piece.style.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          piece.style.fontSize = (12 + Math.random() * 18) + 'px';
+          piece.style.animationDelay = Math.random() * 0.6 + 's';
+          piece.style.animationDuration = (1.5 + Math.random() * 1) + 's';
+          container.appendChild(piece);
+        }
+        setTimeout(() => container.remove(), 3000);
+      }
+
+      function showToast(msg, sub) {
+        const toast = document.createElement('div');
+        toast.className = 'unlock-toast';
+        toast.innerHTML = msg + '<span class="toast-sub">' + sub + '</span>';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function updateProgress(count) {
+        const fill = document.querySelector('.progress-fill');
+        const dots = document.querySelectorAll('.progress-dot');
+        const counter = document.querySelector('.progress-counter');
+
+        if (fill) fill.style.width = (count / totalSteps * 100) + '%';
+        if (counter) counter.textContent = count + ' / ' + totalSteps;
+
+        dots.forEach((dot, i) => {
+          dot.classList.remove('unlocked', 'current');
+          if (i < count) dot.classList.add('unlocked');
+          else if (i === count && count < totalSteps) dot.classList.add('current');
+        });
+      }
+
+      function updateButtons(unlocked) {
+        document.querySelectorAll('.unlock-btn').forEach(btn => {
+          const idx = parseInt(btn.dataset.step);
+          if (unlocked.includes(idx)) {
+            btn.disabled = true;
+            btn.textContent = '✅ 오픈 완료!';
+            btn.classList.remove('next-available');
+          } else if (idx === 0 || unlocked.includes(idx - 1)) {
+            btn.disabled = false;
+            btn.classList.add('next-available');
+          } else {
+            btn.disabled = true;
+            btn.classList.remove('next-available');
+          }
+        });
+
+        // Mark completed step cards
+        stepCards.forEach((card, i) => {
+          if (unlocked.includes(i)) card.classList.add('step-completed');
+          else card.classList.remove('step-completed');
+        });
+      }
+
+      function wrapContent(parentEl, stepIndex, isBonus) {
+        let elements = [];
+        if (isBonus) {
+          const box = parentEl.querySelector('.bonus-prompt-box');
+          if (box) elements.push(box);
+        } else {
+          const body = parentEl.querySelector('.step-body');
+          if (!body) return null;
+          const ps = body.querySelector('.prompt-section');
+          const ds = body.querySelector('.data-section');
+          if (ps) elements.push(ps);
+          if (ds) elements.push(ds);
+        }
+        if (elements.length === 0) return null;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'locked-overlay';
+        wrapper.dataset.step = stepIndex;
+
+        elements[0].parentNode.insertBefore(wrapper, elements[0]);
+        elements.forEach(el => wrapper.appendChild(el));
+
+        const stepLabel = isBonus ? '보너스' : 'Step ' + (stepIndex + 1);
+        const lockMsg = stepIndex === 0
+          ? '🎮 버튼을 눌러 첫 번째 미션을 시작하세요!'
+          : '⏳ 이전 단계를 먼저 오픈하세요';
+
+        const lockScreen = document.createElement('div');
+        lockScreen.className = 'lock-screen';
+        lockScreen.innerHTML =
+          '<div class="lock-icon">🔒</div>' +
+          '<button class="unlock-btn" data-step="' + stepIndex + '">' +
+          '🔓 ' + stepLabel + ' 프롬프트 오픈!</button>' +
+          '<div class="lock-message">' + lockMsg + '</div>';
+        wrapper.appendChild(lockScreen);
+
+        return wrapper;
+      }
+
+      function createProgressBar() {
+        const bar = document.createElement('div');
+        bar.className = 'progress-bar-container';
+
+        let dots = '';
+        for (let i = 0; i < totalSteps; i++) {
+          const label = i < stepCards.length ? (i + 1) : '⭐';
+          dots += '<div class="progress-dot">' + label + '</div>';
+        }
+
+        bar.innerHTML =
+          '<div class="progress-title">' +
+          '<span class="progress-title-text">🎮 미션 진행도 <span class="progress-counter">0 / ' + totalSteps + '</span></span>' +
+          '<button class="reset-all-btn" onclick="resetWorkshop()">🔄 초기화</button>' +
+          '</div>' +
+          '<div class="progress-track"><div class="progress-fill"></div></div>' +
+          '<div class="progress-steps">' + dots + '</div>';
+
+        return bar;
+      }
+
+      function init() {
+        const content = document.querySelector('.content');
+        content.insertBefore(createProgressBar(), content.firstElementChild);
+
+        stepCards.forEach((card, i) => wrapContent(card, i, false));
+        if (bonusSection) wrapContent(bonusSection, stepCards.length, true);
+
+        const unlocked = getUnlocked();
+        unlocked.forEach(idx => {
+          const w = document.querySelector('.locked-overlay[data-step="' + idx + '"]');
+          if (w) w.classList.add('unlocked');
+        });
+
+        updateProgress(unlocked.length);
+        updateButtons(unlocked);
+
+        document.addEventListener('click', function (e) {
+          const btn = e.target.closest('.unlock-btn');
+          if (!btn || btn.disabled) return;
+
+          const idx = parseInt(btn.dataset.step);
+          const unlocked = getUnlocked();
+
+          if (idx > 0 && !unlocked.includes(idx - 1)) {
+            btn.style.animation = 'shake 0.5s';
+            setTimeout(() => btn.style.animation = '', 500);
+            return;
+          }
+
+          unlocked.push(idx);
+          saveUnlocked(unlocked);
+
+          const wrapper = document.querySelector('.locked-overlay[data-step="' + idx + '"]');
+          if (wrapper) wrapper.classList.add('unlocked');
+
+          createConfetti();
+          const m = messages[idx] || ['🎉 잠금 해제!', ''];
+          showToast(m[0], m[1]);
+          updateProgress(unlocked.length);
+          updateButtons(unlocked);
+
+          setTimeout(() => {
+            if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 600);
+        });
+      }
+
+      window.resetWorkshop = function () {
+        if (!confirm('모든 미션 잠금을 초기화할까요?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        document.querySelectorAll('.locked-overlay').forEach(w => w.classList.remove('unlocked'));
+        stepCards.forEach(card => card.classList.remove('step-completed'));
+        updateProgress(0);
+        updateButtons([]);
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
 
 </body>
