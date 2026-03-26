@@ -1126,6 +1126,96 @@
       color: var(--red);
     }
 
+    /* ── PASSWORD MODAL ── */
+    .pw-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    .pw-modal {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 40px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.5) translateY(40px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .pw-icon { font-size: 48px; margin-bottom: 12px; }
+    .pw-title { font-size: 22px; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .pw-subtitle { font-size: 14px; color: var(--gray-500); margin-bottom: 28px; }
+
+    .pw-digits {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .pw-digit {
+      width: 56px; height: 64px;
+      border: 3px solid var(--gray-200);
+      border-radius: 16px;
+      background: var(--gray-50);
+      font-size: 28px; font-weight: 900;
+      text-align: center;
+      color: var(--navy);
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.2s;
+      outline: none;
+      caret-color: var(--orange);
+    }
+
+    .pw-digit:focus { border-color: var(--orange); background: #FFF7ED; box-shadow: 0 4px 12px rgba(230,126,34,0.2); }
+    .pw-digit.correct { border-color: var(--green); background: var(--green-bg); }
+    .pw-digit.wrong { border-color: var(--red); background: var(--red-bg); animation: pw-shake 0.5s; }
+
+    @keyframes pw-shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .pw-result { font-size: 15px; font-weight: 700; margin-bottom: 20px; min-height: 24px; transition: all 0.3s; }
+    .pw-result.success { color: var(--green); }
+    .pw-result.error { color: var(--red); }
+
+    .pw-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .pw-close-btn {
+      background: var(--gray-200);
+      color: var(--gray-600);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .pw-close-btn:hover { background: var(--gray-300); }
+
     .step-card.step-completed {
       border-color: var(--green) !important;
     }
@@ -2656,6 +2746,73 @@ Chart.js를 사용하고, 납품 실적 데이터(localStorage)를 기반으로 
         updateProgress(unlocked.length);
         updateButtons(unlocked);
 
+        const STEP_PASSWORDS = ['3947', '8261', '5738', '1492', '6824', '4517', '9163', '2745', '8036', '5291', '7403'];
+
+        function openPasswordModal(stepIdx) {
+          var overlay = document.createElement('div');
+          overlay.className = 'pw-overlay';
+          var stepLabel = stepIdx < stepCards.length ? 'Step ' + (stepIdx + 1) : '보너스';
+          overlay.innerHTML =
+            '<div class="pw-modal">' +
+              '<div class="pw-icon">🔐</div>' +
+              '<div class="pw-title">암호를 입력하세요</div>' +
+              '<div class="pw-subtitle">' + stepLabel + ' 프롬프트를 열려면 4자리 암호가 필요합니다!</div>' +
+              '<div class="pw-digits">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
+              '</div>' +
+              '<div class="pw-result" id="pw-result"></div>' +
+              '<div class="pw-actions">' +
+                '<button class="pw-close-btn" id="pw-cancel">돌아가기</button>' +
+              '</div>' +
+            '</div>';
+          document.body.appendChild(overlay);
+
+          var digits = overlay.querySelectorAll('.pw-digit');
+          var resultEl = overlay.querySelector('#pw-result');
+
+          setTimeout(function() { digits[0].focus(); }, 100);
+
+          digits.forEach(function(input, i) {
+            input.addEventListener('input', function() {
+              this.value = this.value.replace(/[^0-9]/g, '');
+              if (this.value && i < 3) digits[i + 1].focus();
+              var code = Array.from(digits).map(function(d) { return d.value; }).join('');
+              if (code.length === 4) checkPassword(code, stepIdx, overlay, digits, resultEl);
+            });
+            input.addEventListener('keydown', function(e) {
+              if (e.key === 'Backspace' && !this.value && i > 0) { digits[i - 1].focus(); digits[i - 1].value = ''; }
+            });
+            input.addEventListener('paste', function(e) {
+              e.preventDefault();
+              var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '').slice(0, 4);
+              for (var j = 0; j < pasted.length && j < 4; j++) digits[j].value = pasted[j];
+              if (pasted.length === 4) checkPassword(pasted, stepIdx, overlay, digits, resultEl);
+              else if (pasted.length > 0) digits[Math.min(pasted.length, 3)].focus();
+            });
+          });
+
+          function checkPassword(code, idx, ov, digs, resEl) {
+            var correct = STEP_PASSWORDS[idx] || '0000';
+            if (code === correct) {
+              digs.forEach(function(d) { d.classList.add('correct'); d.disabled = true; });
+              resEl.className = 'pw-result success';
+              resEl.textContent = '🎉 정답! 프롬프트 오픈!';
+              setTimeout(function() { ov.remove(); doUnlock(idx); }, 1000);
+            } else {
+              digs.forEach(function(d) { d.classList.add('wrong'); });
+              resEl.className = 'pw-result error';
+              resEl.textContent = '❌ 암호가 틀렸습니다. 다시 시도하세요!';
+              setTimeout(function() { digs.forEach(function(d) { d.classList.remove('wrong'); d.value = ''; }); resEl.textContent = ''; digs[0].focus(); }, 1000);
+            }
+          }
+
+          overlay.querySelector('#pw-cancel').addEventListener('click', function() { overlay.remove(); });
+          overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+        }
+
         function doUnlock(idx) {
           const unlocked = getUnlocked();
           if (unlocked.includes(idx)) return;
@@ -2690,7 +2847,7 @@ Chart.js를 사용하고, 납품 실적 데이터(localStorage)를 기반으로 
             return;
           }
 
-          doUnlock(idx);
+          openPasswordModal(idx);
         });
       }
 
