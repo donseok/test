@@ -1107,139 +1107,6 @@
       80% { transform: translateX(6px); }
     }
 
-    /* ── PASSWORD MODAL ── */
-    .pw-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 10001;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      animation: fadeIn 0.3s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
-    .pw-modal {
-      background: white;
-      border-radius: 24px;
-      padding: 36px 40px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-      animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    @keyframes modalPop {
-      from { transform: scale(0.5) translateY(40px); opacity: 0; }
-      to { transform: scale(1) translateY(0); opacity: 1; }
-    }
-
-    .pw-icon {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-
-    .pw-title {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .pw-subtitle {
-      font-size: 14px;
-      color: var(--gray-500);
-      margin-bottom: 28px;
-    }
-
-    .pw-digits {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .pw-digit {
-      width: 56px;
-      height: 64px;
-      border: 3px solid var(--gray-200);
-      border-radius: 16px;
-      background: var(--gray-50);
-      font-size: 28px;
-      font-weight: 900;
-      text-align: center;
-      color: var(--navy);
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.2s;
-      outline: none;
-      caret-color: var(--orange);
-    }
-
-    .pw-digit:focus {
-      border-color: var(--orange);
-      background: #FFF7ED;
-      box-shadow: 0 4px 12px rgba(230,126,34,0.2);
-    }
-
-    .pw-digit.correct {
-      border-color: var(--green);
-      background: var(--green-bg);
-    }
-
-    .pw-digit.wrong {
-      border-color: var(--red);
-      background: var(--red-bg);
-      animation: pw-shake 0.5s;
-    }
-
-    @keyframes pw-shake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(8px); }
-      60% { transform: translateX(-6px); }
-      80% { transform: translateX(6px); }
-    }
-
-    .pw-result {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      min-height: 24px;
-      transition: all 0.3s;
-    }
-
-    .pw-result.success { color: var(--green); }
-    .pw-result.error { color: var(--red); }
-
-    .pw-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .pw-close-btn {
-      background: var(--gray-200);
-      color: var(--gray-600);
-      border: none;
-      padding: 12px 28px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.2s;
-    }
-
-    .pw-close-btn:hover {
-      background: var(--gray-300);
-    }
 
     .reset-all-btn {
       background: none;
@@ -1461,7 +1328,7 @@
       <div class="step-header">
         <div class="step-number">1</div>
         <div class="step-title-area">
-          <h2>뼈대 만들기</h2>
+          <h2>뼈대 잡기</h2>
           <div class="step-subtitle">"일단 화면을 띄워보자"</div>
         </div>
         <div class="step-time">⏱️ 10분</div>
@@ -1486,13 +1353,6 @@
           </div>
           <div class="thinking-step">
             <div class="thinking-num">3</div>
-            <div class="thinking-text">
-              <strong>말로 설명하기:</strong> 색상, 위치, 크기를 구체적으로 적어봅시다
-              <span class="thought-example">💭 "헤더는 진한 남색, 포인트는 오렌지, 배경은 밝은 회색"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">4</div>
             <div class="thinking-text">
               <strong>포인트:</strong> 처음부터 완벽하게 안 해도 됩니다. <strong>"빈 껍데기"를 먼저 만들고, 나중에 하나씩 채워 넣는 거예요!</strong>
             </div>
@@ -1519,7 +1379,7 @@
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
           <div class="check-item">화면에 네이비색 헤더가 보이나요?</div>
-          <div class="check-item">3개 탭을 클릭하면 내용이 바뀌나요?</div>
+          <div class="check-item">2개 탭을 클릭하면 내용이 바뀌나요?</div>
         </div>
 
         <div class="teacher-tip">
@@ -1535,14 +1395,14 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- STEP 2 -->
     <!-- ═══════════════════════════════════════ -->
-    <div class="step-card" style="border: 2px solid var(--orange);">
-      <div class="step-header" style="background: linear-gradient(135deg, var(--orange) 0%, #D35400 100%);">
-        <div class="step-number" style="background: var(--navy);">2</div>
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">2</div>
         <div class="step-title-area">
-          <h2>엑셀 데이터 연결하기 ⭐</h2>
-          <div class="step-subtitle">"내 진짜 데이터로 시작!" — 오늘의 핵심</div>
+          <h2>KPI 카드 만들기</h2>
+          <div class="step-subtitle">"핵심 지표를 한눈에!"</div>
         </div>
-        <div class="step-time">⏱️ 15분</div>
+        <div class="step-time">⏱️ 10분</div>
       </div>
       <div class="step-body">
 
@@ -1551,81 +1411,53 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>문제 인식:</strong> 대시보드에 가짜 숫자를 넣으면 의미가 없습니다. <strong>우리 팀 엑셀 데이터</strong>를 바로 쓸 수 있어야 해요!
-              <span class="thought-example">💭 "엑셀에서 복사 → 붙여넣기 → 자동으로 KPI 카드와 숫자가 나오면 좋겠다"</span>
+              <strong>눈으로 그리기:</strong> 대시보드 상단에 핵심 숫자가 보이면 좋겠죠?
+              <span class="thought-example">💭 "연간 목표, 누계 실적, 달성률, 인천/포항 비율 — 4개 카드가 나란히"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> 이 기능을 세부적으로 쪼개봅시다
-              <span class="thought-example">💭 "① 데이터 입력창 ② 적용/저장 버튼 ③ 데이터 파싱 ④ KPI 카드 자동 계산 ⑤ 테이블 표시"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">3</div>
-            <div class="thinking-text">
-              <strong>데이터 형태를 정확히 설명하는 것이 핵심!</strong> AI가 데이터를 파싱하려면 <strong>"몇 줄이고, 무슨 순서이고, 어떻게 구분되는지"</strong>를 정확히 알려줘야 합니다.
-              <span class="thought-example">💭 "4줄짜리, 탭으로 구분, 순서: 인천계획 → 인천실적 → 포항계획 → 포항실적"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">4</div>
-            <div class="thinking-text">
-              <strong>포인트:</strong> KPI 숫자를 직접 입력하는 게 아니라, <strong>엑셀 데이터에서 자동 계산</strong>되게 하는 거예요. 인천+포항 합계, 달성률 등이 자동으로!
+              <strong>핵심 포인트:</strong> 처음에는 데이터가 없으니 <strong>"데이터를 입력해야 반영됩니다"</strong>라고 안내 메시지를 보여줍니다.
+              <span class="thought-example">💭 "나중에 데이터를 넣으면 자동으로 숫자가 채워지게 하자"</span>
             </div>
           </div>
         </div>
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt2">첫 번째 탭 "부재료실적 모니터링"에 엑셀 데이터 입력 기능과 KPI 카드를 만들어줘.
+          <div class="prompt-box" id="prompt2">첫 번째 탭 "부재료실적 모니터링" 상단에 KPI 카드 4개를 만들어줘.
 
-핵심 기능: 엑셀에서 데이터를 복사해서 붙여넣으면, KPI 숫자가 자동으로 계산되어 표시되는 거야.
+4개 카드 구성:
+- 연간 목표 (만 톤 단위)
+- 누계 실적 (만 톤 단위)
+- 계획 대비 달성률 (%)
+- 인천/포항 실적비 (비율)
 
-구체적으로 이렇게 만들어줘:
-1. 맨 위에 "데이터 불러오기" 버튼을 만들어줘. 클릭하면 큰 텍스트 입력창(textarea)이 나타나게 해줘.
-2. 사용자가 엑셀에서 아래 형태의 데이터를 복사해서 붙여넣어:
-   4줄짜리 데이터 (탭으로 구분됨)
-   1줄: 인천 계획 숫자 12개 (1월~12월)
-   2줄: 인천 실적 숫자 12개
-   3줄: 포항 계획 숫자 12개
-   4줄: 포항 실적 숫자 12개
-3. "적용" 버튼을 누르면 붙여넣은 텍스트를 줄바꿈과 탭으로 나눠서 숫자로 변환해줘
-4. 데이터를 기반으로 KPI 카드 4개를 자동 계산해서 표시:
-   - 연간 목표: 인천계획 + 포항계획 합계 (만 톤 단위로 변환)
-   - 누계 실적: 인천실적 + 포항실적 합계 (만 톤 단위로 변환)
-   - 계획 대비 달성률: (실적합계 / 계획합계) × 100%
-   - 인천/포항 실적비: 인천실적합계 vs 포항실적합계 비율
-5. "저장" 버튼으로 localStorage에 저장해서 새로고침해도 데이터 유지
-6. 페이지를 열 때 localStorage에 저장된 데이터가 있으면 자동으로 불러와서 KPI 표시
-7. KPI 카드 아래에 현재 데이터를 테이블로 보여줘 (인천 계획, 인천 실적, 포항 계획, 포항 실적 4줄 × 12월)
+중요한 점:
+1. 최초 생성 시 카드는 비어있는 상태로 표시해줘
+2. 각 카드에 "데이터를 입력해야 반영됩니다"라는 안내 문구를 보여줘
+3. 나중에 데이터가 입력되면 안내 문구 대신 계산된 숫자가 표시되도록 구조를 잡아줘
+4. 달성률이 100% 이상이면 "초과 달성" 표시를 오렌지색으로 넣어줘
 
-카드는 흰색 배경에 둥근 모서리, 큰 숫자는 굵고 크게, 설명은 작은 회색 글씨로 해줘.
-달성률이 100% 이상이면 "초과" 표시를 오렌지색으로 넣어줘.<button class="copy-btn" onclick="copyPrompt('prompt2')">복사</button></div>
-        </div>
-
-        <div class="data-section">
-          <div class="data-label">📊 테스트용 데이터 (엑셀에서 복사한 것처럼 붙여넣기)</div>
-          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
-127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
-95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
-111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
+카드 디자인:
+- 흰색 배경에 둥근 모서리 (border-radius: 12px)
+- 큰 숫자는 굵고 크게 (font-size: 28px, font-weight: 800)
+- 설명은 작은 회색 글씨 (font-size: 13px, color: #6B7280)
+- 4개가 가로로 나란히, 화면 좁으면 2×2로<button class="copy-btn" onclick="copyPrompt('prompt2')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">위 테스트 데이터를 붙여넣고 적용하면 KPI 카드에 숫자가 나오나요?</div>
-          <div class="check-item">4개 카드가 가로로 나란히 보이나요?</div>
-          <div class="check-item">달성률이 자동 계산되어 표시되나요?</div>
-          <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
+          <div class="check-item">KPI 카드 4개가 보이나요?</div>
+          <div class="check-item">"데이터를 입력해야 반영됩니다" 안내가 표시되나요?</div>
+          <div class="check-item">4개 카드가 가로로 나란히 배치되나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p><strong>localStorage</strong>는 브라우저 안의 <strong>개인 서랍장</strong> 같은 거예요. 서버 없이도 데이터를 저장할 수 있습니다.
-            프롬프트에서 <strong>"4줄짜리, 탭으로 구분"</strong>이라고 데이터 형태를 명확히 알려준 것이 핵심입니다.
-            AI는 이 설명을 보고 데이터를 파싱하는 코드를 만든 거예요.</p>
+          <p>아직 데이터가 없지만 <strong>자리를 먼저 잡아두는 것</strong>이 핵심입니다.
+            "빈 껍데기 → 데이터 연결"의 순서로 만들면 훨씬 안정적으로 완성할 수 있어요!</p>
         </div>
 
       </div>
@@ -1639,10 +1471,10 @@
       <div class="step-header">
         <div class="step-number">3</div>
         <div class="step-title-area">
-          <h2>차트 넣기</h2>
-          <div class="step-subtitle">"데이터를 그림으로 바꾸자"</div>
+          <h2>차트 영역 만들기</h2>
+          <div class="step-subtitle">"차트 자리를 먼저 잡아두자"</div>
         </div>
-        <div class="step-time">⏱️ 15분</div>
+        <div class="step-time">⏱️ 10분</div>
       </div>
       <div class="step-body">
 
@@ -1651,22 +1483,15 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>눈으로 그리기:</strong> KPI 카드만으론 "추이"가 안 보입니다. 월별 흐름을 보려면?
-              <span class="thought-example">💭 "막대 차트로 계획 vs 실적을 비교하고, 꺾은선 차트로 거래처별 추이를 보면 되겠다"</span>
+              <strong>눈으로 그리기:</strong> KPI 카드 아래에 차트 2개가 나란히 있으면 좋겠죠?
+              <span class="thought-example">💭 "왼쪽에 월별 계획 대비 실적 막대 차트, 오른쪽에 거래처 납품 추이 꺾은선 차트"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> 차트를 배치해봅시다
-              <span class="thought-example">💭 "왼쪽에 큰 막대 차트(60%), 오른쪽에 작은 꺾은선 차트(40%) → 좁은 화면에서는 위아래로"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">3</div>
-            <div class="thinking-text">
-              <strong>핵심 포인트:</strong> 앞 단계에서 붙여넣은 데이터가 <strong>차트에도 자동 반영</strong>되어야 합니다.
-              데이터를 다시 입력하는 게 아니라, <strong>저장된 데이터를 읽어서</strong> 차트를 그리는 거예요!
+              <strong>핵심 포인트:</strong> 데이터 입력 전에는 <strong>빈 차트 영역</strong>만 보여주고, 데이터가 들어오면 자동으로 차트가 그려지게!
+              <span class="thought-example">💭 "데이터를 저장하면 차트가 자동으로 그려지는 구조를 먼저 만들자"</span>
             </div>
           </div>
         </div>
@@ -1675,36 +1500,34 @@
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt3">KPI 카드 아래에 차트 2개를 나란히 넣어줘.
 차트는 Chart.js 라이브러리를 CDN으로 불러와서 사용해줘.
-차트 데이터는 하드코딩하지 말고, 앞에서 localStorage에 저장한 계획/실적 데이터를 읽어서 자동으로 반영해줘.
-데이터를 새로 붙여넣고 적용하면 차트도 자동 갱신되게 해줘.
 
 왼쪽 차트 (너비 60%): "월별 계획 대비 실적"
 - 막대 차트
 - 가로축: 1월~12월
-- 계획 합계(인천+포항): 파란색 테두리 막대
-- 실적 합계(인천+포항): 주황색 채운 막대
+- 계획 합계(인천+포항): 네이비색 테두리 막대
+- 실적 합계(인천+포항): 오렌지색 채운 막대
 - 만톤 단위로 표시
-- 제목 옆에 연간 달성률 % 표시
 
 오른쪽 차트 (너비 40%): "월별 주요 거래처 납품 추이"
 - 꺾은선 차트
 - 거래처 3개: 일보앤틱(파란색), 대한강철(주황색), 동국자원(초록색)
-- 이 차트는 적당한 샘플 데이터를 넣어줘
 
-화면이 좁아지면 차트가 위아래로 배치되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt3')">복사</button></div>
+중요한 점:
+1. 데이터가 저장되기 전까지는 차트 영역에 "데이터를 입력하면 차트가 표시됩니다"라는 안내를 보여줘
+2. localStorage에 데이터가 있으면 자동으로 읽어서 차트를 그려줘
+3. 화면이 좁아지면 차트가 위아래로 배치되게 해줘<button class="copy-btn" onclick="copyPrompt('prompt3')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">막대 차트에서 주황(실적)과 파란(계획)이 구분되나요?</div>
-          <div class="check-item">꺾은선 차트에 3개 거래처가 각각 다른 색으로 보이나요?</div>
-          <div class="check-item">데이터를 다시 붙여넣고 적용하면 차트가 자동으로 바뀌나요?</div>
+          <div class="check-item">차트 영역 2개가 나란히 보이나요?</div>
+          <div class="check-item">"데이터를 입력하면 차트가 표시됩니다" 안내가 보이나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
           <p><strong>Chart.js</strong>는 인터넷에서 무료로 가져와 쓸 수 있는 차트 도구입니다. <strong>CDN</strong>이라는 방식으로 인터넷 주소 한 줄이면 사용 가능해요.
-            그리고 "localStorage에서 읽어서"라고 했더니, AI가 앞 단계의 데이터를 <strong>자동 연결</strong>해줬습니다. 이것이 바이브코딩의 힘!</p>
+            아직 빈 상태지만, 다음 단계에서 데이터를 넣으면 바로 차트가 나타납니다!</p>
         </div>
 
       </div>
@@ -1714,12 +1537,12 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- STEP 4 -->
     <!-- ═══════════════════════════════════════ -->
-    <div class="step-card">
-      <div class="step-header">
-        <div class="step-number">4</div>
+    <div class="step-card" style="border: 2px solid var(--orange);">
+      <div class="step-header" style="background: linear-gradient(135deg, var(--orange) 0%, #D35400 100%);">
+        <div class="step-number" style="background: var(--navy);">4</div>
         <div class="step-title-area">
-          <h2>거래처 납품 데이터 연결</h2>
-          <div class="step-subtitle">"두 번째 엑셀 데이터도 연결하자"</div>
+          <h2>월별 계획 대비 실적 데이터 입력 ⭐</h2>
+          <div class="step-subtitle">"엑셀 데이터를 붙여넣자!" — 오늘의 핵심</div>
         </div>
         <div class="step-time">⏱️ 15분</div>
       </div>
@@ -1730,55 +1553,69 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>눈으로 그리기:</strong> 계획/실적 외에 <strong>거래처별 납품 데이터</strong>도 관리해야 합니다.
-              <span class="thought-example">💭 "전기일, 공급업체, 검수등급, 입고량, 입고금액 — 이 5개 열짜리 데이터를 엑셀에서 복사해서 넣으면 되겠다"</span>
+              <strong>문제 인식:</strong> KPI 카드와 차트가 비어있죠? 이제 <strong>엑셀 데이터를 연결</strong>할 차례입니다!
+              <span class="thought-example">💭 "엑셀에서 복사 → 붙여넣기 → KPI와 차트가 자동으로 채워지면 좋겠다"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> Step 2와 같은 원리를 적용합니다
-              <span class="thought-example">💭 "① 텍스트 입력창 ② 파싱 후 테이블 표시 ③ 데이터가 많으니 페이지 나누기 ④ 저장"</span>
+              <strong>핵심:</strong> 엑셀 구조와 동일한 그리드를 만들어서, 데이터를 <strong>통째로 붙여넣기</strong> 할 수 있게 하는 거예요.
+              <span class="thought-example">💭 "4줄 × 12열 그리드 → 엑셀에서 Ctrl+C → 그리드에 Ctrl+V"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">3</div>
             <div class="thinking-text">
-              <strong>포인트:</strong> 같은 패턴이 반복됩니다! <strong>"붙여넣기 → 파싱 → 표시 → 저장"</strong>.
-              한 번 배운 프롬프트 구조를 그대로 활용하는 거예요.
+              <strong>포인트:</strong> 데이터를 저장하면 <strong>KPI 카드와 차트가 자동으로 갱신</strong>됩니다. 데이터 → KPI → 차트가 하나로 연결!
             </div>
           </div>
         </div>
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt4">차트 아래에 "거래처 납품 실적관리 데이터" 영역을 추가해줘.
+          <div class="prompt-box" id="prompt4">차트 아래에 "월별 계획 대비 실적" 데이터 입력 영역을 만들어줘.
+엑셀에서 데이터를 복사해서 바로 붙여넣을 수 있는 그리드 형태로 만들어줘.
 
-이 영역의 핵심 기능:
-엑셀에서 거래처 납품 데이터를 복사해서 붙여넣으면, 테이블로 정리해서 보여주는 거야.
+그리드 구조 (엑셀과 동일하게):
+- 행 4개: 인천 계획 / 인천 실적 / 포항 계획 / 포항 실적
+- 열 12개: 1월 ~ 12월
+- 왼쪽에 행 이름(인천 계획, 인천 실적 등)을 고정 표시
 
-구체적으로 이렇게 만들어줘:
-1. "납품 데이터 불러오기" 버튼 → 클릭하면 큰 텍스트 입력창(textarea) 표시
-2. 엑셀 데이터 형태: 5개 열 (탭으로 구분)
-   - 전기일 / 공급업체명 / 검수등급명(품명) / 입고량 / 입고금액
-3. "원본 데이터 반영" 버튼으로 데이터를 파싱해서 테이블로 표시
-4. 데이터가 많으니까 100개씩 페이지 나누기(페이지네이션)
-5. "저장" 버튼으로 localStorage에 저장
-6. 페이지를 열 때 저장된 데이터가 있으면 자동으로 불러와서 표시
-7. 테이블 위에 간단한 요약 표시: 총 건수, 총 입고량, 총 입고금액<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
+핵심 기능:
+1. 엑셀에서 4행 × 12열 데이터를 복사해서 그리드에 붙여넣기(Ctrl+V) 가능
+2. 각 셀을 직접 클릭해서 수정도 가능
+3. "저장" 버튼을 누르면 localStorage에 저장
+4. 저장 시 KPI 카드 4개가 자동 갱신:
+   - 연간 목표: (인천계획 + 포항계획) 합계를 만 톤으로 변환
+   - 누계 실적: (인천실적 + 포항실적) 합계를 만 톤으로 변환
+   - 달성률: (실적합계 / 계획합계) × 100%
+   - 인천/포항 비율: 인천실적합계 vs 포항실적합계
+5. 저장 시 "월별 계획 대비 실적" 차트도 자동 갱신
+6. 페이지를 열 때 저장된 데이터가 있으면 그리드에 자동 표시
+7. "초기화" 버튼으로 그리드 데이터 전체 삭제 가능<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
+        </div>
+
+        <div class="data-section">
+          <div class="data-label">📊 테스트용 데이터 (엑셀에서 복사한 것처럼 붙여넣기)</div>
+          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
+127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
+95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
+111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">납품 데이터를 붙여넣고 반영하면 테이블이 보이나요?</div>
-          <div class="check-item">페이지 나누기가 동작하나요?</div>
+          <div class="check-item">그리드에 테스트 데이터를 붙여넣을 수 있나요?</div>
+          <div class="check-item">저장하면 KPI 카드에 숫자가 나타나나요?</div>
+          <div class="check-item">차트가 자동으로 갱신되나요?</div>
           <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p>Step 2에서 배운 패턴이 그대로 적용됐죠? <strong>"붙여넣기 → 파싱 → 표시 → 저장"</strong>은 데이터 종류가 달라져도 같은 구조입니다.
-            프롬프트도 비슷한 구조로 쓰면 됩니다. 이제 여러분은 <strong>어떤 엑셀 데이터든</strong> 이런 식으로 웹에 연결할 수 있어요!</p>
+          <p>이 단계가 핵심입니다! <strong>"엑셀 구조와 동일한 그리드"</strong>를 만들어서 붙여넣기하면,
+            KPI 카드와 차트가 한꺼번에 갱신됩니다. 데이터 → 지표 → 시각화가 <strong>하나로 연결</strong>되는 거예요!</p>
         </div>
 
       </div>
@@ -1791,6 +1628,152 @@
     <div class="step-card">
       <div class="step-header">
         <div class="step-number">5</div>
+        <div class="step-title-area">
+          <h2>월별 누계 실적 상세</h2>
+          <div class="step-subtitle">"데이터를 테이블로 정리하자"</div>
+        </div>
+        <div class="step-time">⏱️ 10분</div>
+      </div>
+      <div class="step-body">
+
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>눈으로 그리기:</strong> Step 4에서 입력한 데이터를 <strong>보기 좋은 테이블</strong>로 정리하면 좋겠죠?
+              <span class="thought-example">💭 "월별로 인천/포항 합계, 누계, 달성률을 한눈에 볼 수 있는 상세 테이블"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> Step 4에서 저장한 데이터를 <strong>자동으로 읽어서</strong> 테이블을 만드는 거예요. 데이터를 다시 입력할 필요 없음!
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt5">데이터 입력 그리드 아래에 "월별 누계 실적 상세" 테이블을 추가해줘.
+
+이 테이블은 앞에서 저장한 계획/실적 데이터를 자동으로 읽어서 표시해줘.
+데이터가 없으면 "Step 4에서 데이터를 먼저 입력해주세요"라고 안내해줘.
+
+테이블 구성:
+- 열: 월 | 인천계획 | 인천실적 | 포항계획 | 포항실적 | 합계계획 | 합계실적 | 달성률(%)
+- 행: 1월~12월 + 합계 행
+- 달성률이 100% 이상이면 셀 배경을 연한 초록색, 100% 미만이면 연한 빨간색으로
+- 합계 행은 굵은 글씨와 구분선으로 강조
+- 숫자는 천 단위 콤마 표시 (예: 120,000)
+
+데이터가 저장/갱신되면 이 테이블도 자동으로 갱신되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt5')">복사</button></div>
+        </div>
+
+        <div class="check-section">
+          <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">월별 상세 테이블이 보이나요?</div>
+          <div class="check-item">달성률에 따라 색상이 다르게 표시되나요?</div>
+          <div class="check-item">합계 행이 강조되어 보이나요?</div>
+          <div class="check-item">Step 4에서 데이터를 바꾸면 테이블도 자동 갱신되나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p>한 번 저장한 데이터가 KPI 카드, 차트, 테이블에 <strong>동시에 반영</strong>되는 것을 확인하세요!
+            이것이 "데이터 중심 대시보드"의 핵심입니다. 하나의 데이터 소스로 여러 뷰를 만드는 거예요.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- STEP 6 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="step-card" style="border: 2px solid var(--orange);">
+      <div class="step-header" style="background: linear-gradient(135deg, var(--orange) 0%, #D35400 100%);">
+        <div class="step-number" style="background: var(--navy);">6</div>
+        <div class="step-title-area">
+          <h2>거래처 납품 실적 데이터 (인천공장) ⭐</h2>
+          <div class="step-subtitle">"2만 건 넘는 실적 데이터를 붙여넣자!"</div>
+        </div>
+        <div class="step-time">⏱️ 15분</div>
+      </div>
+      <div class="step-body">
+
+        <div class="thinking-section">
+          <h4>🧠 이렇게 생각해보세요</h4>
+          <div class="thinking-step">
+            <div class="thinking-num">1</div>
+            <div class="thinking-text">
+              <strong>문제 인식:</strong> 인천공장의 납품 실적 데이터는 <strong>연 2만 건이 넘습니다.</strong> 이 대량 데이터를 관리할 수 있어야 해요!
+              <span class="thought-example">💭 "엑셀과 동일한 5열 구조의 그리드를 만들고, 대량 데이터를 한번에 붙여넣기"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">2</div>
+            <div class="thinking-text">
+              <strong>조각으로 나누기:</strong> 대량 데이터를 다루려면 특별한 기능이 필요합니다
+              <span class="thought-example">💭 "① 엑셀과 동일한 그리드 ② 대량 붙여넣기 ③ 페이지네이션 ④ 요약 정보"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">3</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> 2만 건을 한 화면에 다 보여주면 느려집니다. <strong>100건씩 페이지 나누기</strong>가 필수!
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
+          <div class="prompt-box" id="prompt6">"거래처 납품 실적관리 데이터 (인천공장)" 영역을 추가해줘.
+엑셀의 구조와 동일하게 그리드를 구성해줘.
+
+그리드 헤더 5개:
+- 전기일 / 공급업체명 / 검수등급명(품명) / 입고량 / 입고금액
+
+핵심 기능:
+1. "납품 데이터 불러오기" 버튼 → 클릭하면 큰 텍스트 입력창(textarea) 표시
+2. 엑셀에서 5열 × 수만 행 데이터를 복사해서 한번에 붙여넣기 가능
+3. "반영" 버튼으로 탭 구분 텍스트를 파싱해서 테이블로 표시
+4. 연 2만 건 이상의 데이터를 처리할 수 있도록 100건씩 페이지네이션
+5. 테이블 위에 요약 표시: 총 건수, 총 입고량(톤), 총 입고금액(원)
+6. "저장" 버튼으로 localStorage에 저장
+7. 페이지를 열 때 저장된 데이터가 있으면 자동으로 불러와서 표시
+8. 저장 시 "월별 주요 거래처 납품 추이" 차트도 자동 갱신
+
+테이블 디자인:
+- 헤더는 진한 남색 배경에 흰색 글씨
+- 짝수/홀수 행 배경색 구분
+- 숫자 열(입고량, 입고금액)은 오른쪽 정렬, 천 단위 콤마<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
+        </div>
+
+        <div class="check-section">
+          <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">납품 데이터를 붙여넣고 반영하면 테이블이 보이나요?</div>
+          <div class="check-item">페이지 나누기가 동작하나요?</div>
+          <div class="check-item">요약 정보(건수, 입고량, 금액)가 표시되나요?</div>
+          <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
+        </div>
+
+        <div class="teacher-tip">
+          <h4>💬 강사 한마디</h4>
+          <p><strong>2만 건 이상의 대량 데이터</strong>도 브라우저에서 처리할 수 있습니다!
+            핵심은 <strong>페이지네이션</strong>이에요. 데이터는 전부 저장하되, 화면에는 100건씩만 보여주면 됩니다.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- STEP 7 -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">7</div>
         <div class="step-title-area">
           <h2>검수 등급 매핑 관리</h2>
           <div class="step-subtitle">"품명을 등급으로 자동 변환!"</div>
@@ -1826,7 +1809,7 @@
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt5">"검수 등급 매핑 관리" 기능을 추가해줘.
+          <div class="prompt-box" id="prompt7">"검수 등급 매핑 관리" 기능을 추가해줘.
 
 이 기능의 목적:
 거래처 납품 데이터의 "검수등급명(품명)"을 보고 자동으로 국고 등급(국고상/국고중/국고하/선반설)으로 분류하는 매핑 테이블을 관리하는 기능이야.
@@ -1846,7 +1829,7 @@
 6. 매핑되지 않은 품명이 납품 데이터에 있으면 "미분류" 경고 표시
 7. localStorage에 저장해서 새로고침해도 매핑 데이터 유지
 8. "초기화" 버튼으로 기본 매핑 데이터로 되돌리기 가능
-9. 거래처 납품 실적 데이터와 연동: 납품 데이터의 검수등급명을 이 매핑 테이블로 자동 분류해서 등급별 입고량/입고금액 요약 표시<button class="copy-btn" onclick="copyPrompt('prompt5')">복사</button></div>
+9. 거래처 납품 실적 데이터와 연동: 납품 데이터의 검수등급명을 이 매핑 테이블로 자동 분류해서 등급별 입고량/입고금액 요약 표시<button class="copy-btn" onclick="copyPrompt('prompt7')">복사</button></div>
         </div>
 
         <div class="data-section">
@@ -1870,138 +1853,6 @@
           <h4>💬 강사 한마디</h4>
           <p>이 프롬프트에서 배울 점: <strong>기능을 1~9번까지 번호로 나열</strong>한 것입니다. AI에게 여러 기능을 요청할 때는
             이렇게 <strong>번호를 매겨서 나열</strong>하면 빠뜨리지 않고 만들어줍니다. "잘 만들어줘"보다 훨씬 정확한 결과가 나와요!</p>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ═══════════════════════════════════════ -->
-    <!-- STEP 6 -->
-    <!-- ═══════════════════════════════════════ -->
-    <div class="step-card" style="border: 2px solid var(--blue);">
-      <div class="step-header" style="background: linear-gradient(135deg, var(--blue) 0%, #1D4ED8 100%);">
-        <div class="step-number" style="background: var(--navy);">6</div>
-        <div class="step-title-area">
-          <h2>등급별현황/수입관리 탭 ⭐</h2>
-          <div class="step-subtitle">"두 번째 핵심 탭을 채우자"</div>
-        </div>
-        <div class="step-time">⏱️ 15분</div>
-      </div>
-      <div class="step-body">
-
-        <div class="thinking-section">
-          <h4>🧠 이렇게 생각해보세요</h4>
-          <div class="thinking-step">
-            <div class="thinking-num">1</div>
-            <div class="thinking-text">
-              <strong>눈으로 그리기:</strong> 이 탭에서는 무엇을 볼 수 있어야 할까요?
-              <span class="thought-example">💭 "등급별(국고상/중/하/선반설) 구매 현황을 한눈에"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">2</div>
-            <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> 이 탭도 위에서 아래로 영역을 나눠봅시다
-              <span class="thought-example">💭 "① KPI 카드 4개 ② 월별 구매량 차트 ③ 등급별 도넛 차트 ④ 구매실적 테이블"</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="prompt-section">
-          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt6">두 번째 탭 "등급별현황/수입관리"에 내용을 추가해줘.
-
-상단에 KPI 카드 4개:
-1. 구매량 총합: 48.7만 톤
-2. 누계 입고금액: 1,247억 원
-3. 구매량/금액 비율: 25.6만원/톤
-4. 국고하+선반설 비율: 63.2%
-
-아래에 차트 2개를 나란히:
-왼쪽 (60%): "월별 구매량 추이" — 막대+꺾은선 복합 차트
-- 막대: 등급별 구매량 (국고상=파랑, 국고중=초록, 국고하=주황, 선반설=보라)
-- 꺾은선: 합계 추이
-- 가로축: 1월~12월
-
-오른쪽 (40%): "인천공장 배분 현황" — 도넛 차트
-- 국고하 42%, 국고중 28%, 선반설 15%, 국고상 10%, 기타 5%
-
-차트 아래에 "월별 구매실적 상세" 테이블:
-월 | 국고상(톤) | 국고중(톤) | 국고하(톤) | 선반설(톤) | 합계(톤) | 금액(억원) | 전월비(%)
-12개월 샘플 데이터를 넣어줘.
-
-<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
-        </div>
-
-        <div class="check-section">
-          <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">KPI 카드 4개가 보이나요?</div>
-          <div class="check-item">막대+꺾은선 복합 차트가 표시되나요?</div>
-          <div class="check-item">도넛 차트에 등급별 비율이 보이나요?</div>
-        </div>
-
-        <div class="teacher-tip">
-          <h4>💬 강사 한마디</h4>
-          <p>이 프롬프트가 길어 보이지만, 사실 <strong>"KPI → 차트 → 테이블 → 테이블"</strong> 4개 영역을 순서대로 설명한 것뿐입니다.
-            복잡해 보이는 화면도 <strong>위에서 아래로 한 영역씩 설명</strong>하면 됩니다. 이것이 "조각으로 나누기"의 힘이에요!</p>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ═══════════════════════════════════════ -->
-    <!-- STEP 7 -->
-    <!-- ═══════════════════════════════════════ -->
-    <div class="step-card">
-      <div class="step-header">
-        <div class="step-number">7</div>
-        <div class="step-title-area">
-          <h2>마무리 다듬기</h2>
-          <div class="step-subtitle">"완성도를 높이자"</div>
-        </div>
-        <div class="step-time">⏱️ 10분</div>
-      </div>
-      <div class="step-body">
-
-        <div class="thinking-section">
-          <h4>🧠 이렇게 생각해보세요</h4>
-          <div class="thinking-step">
-            <div class="thinking-num">1</div>
-            <div class="thinking-text">
-              <strong>한발 물러서 보기:</strong> 핵심 기능은 다 만들었습니다. 이제 "마무리 터치"를 해봅시다.
-              <span class="thought-example">💭 "다크모드도 넣고, 보고서 내보내기 버튼도 넣으면 완성도가 올라가겠다"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">2</div>
-            <div class="thinking-text">
-              <strong>포인트:</strong> 마무리 단계에서는 여러 요청을 <strong>한번에 묶어서</strong> 보내도 됩니다.
-              AI는 여러 작업을 동시에 처리할 수 있어요. <strong>"그리고"로 연결</strong>하면 됩니다.
-            </div>
-          </div>
-        </div>
-
-        <div class="prompt-section">
-          <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt7">전체적으로 마무리 다듬기를 해줘.
-
-1. 전체 다듬기:
-- 헤더에 "보고서 내보내기" 오렌지색 버튼 추가
-- 다크모드 토글 버튼 추가 (클릭하면 어두운 테마로)
-- "로그아웃" 버튼 (클릭 시 확인창만 띄우기)
-- "조회 연도" 드롭다운 (2024, 2025, 2026)
-- 반응형: 넓은 화면은 가로, 좁은 화면은 세로
-- 하단 푸터: "Copyright(c) 동국시스템즈"<button class="copy-btn" onclick="copyPrompt('prompt7')">복사</button></div>
-        </div>
-
-        <div class="check-section">
-          <h4>✅ 최종 확인 체크리스트</h4>
-          <div class="check-item">2개 탭 모두 내용이 있나요?</div>
-          <div class="check-item">다크모드 전환이 되나요?</div>
-          <div class="check-item">화면을 줄여도 깨지지 않나요?</div>
-          <div class="check-item">엑셀 데이터 붙여넣기 후 차트가 자동으로 바뀌나요?</div>
         </div>
 
       </div>
@@ -2256,12 +2107,12 @@
 
       const messages = [
         ['🚀 시작이 반이다!', '첫 뼈대를 세웠어요'],
-        ['💪 엑셀 데이터 연결!', '내 데이터가 살아났어요'],
-        ['📊 차트 장인 등극!', '데이터를 시각화하는 힘'],
-        ['⭐ 납품 데이터 정복!', '실적관리의 시작'],
-        ['🎯 등급 분류 전문가!', '매핑의 세계에 오신 걸 환영합니다'],
-        ['🔥 거의 다 왔어요!', '두 번째 탭도 정복'],
-        ['🎉 마무리 터치!', '완성도가 달라집니다'],
+        ['💪 KPI 카드 완성!', '핵심 지표 자리를 잡았어요'],
+        ['📊 차트 영역 준비!', '시각화의 기초를 다졌어요'],
+        ['⭐ 데이터 연결 성공!', '엑셀 데이터가 살아났어요'],
+        ['📋 상세 테이블 완성!', '데이터가 하나로 연결됐어요'],
+        ['🔥 대량 데이터 정복!', '2만 건도 거뜬해요'],
+        ['🎯 등급 매핑 완료!', '자동 분류의 힘'],
         ['🏆 전체 미션 완료!', '바이브코딩 마스터 달성!']
       ];
 
@@ -2418,100 +2269,6 @@
         updateProgress(unlocked.length);
         updateButtons(unlocked);
 
-        // ── 암호 입력 시스템 ──
-        const STEP_PASSWORDS = ['8273', '4916', '3748', '6052', '9381', '2647', '5839', '7264'];
-
-        function openPasswordModal(stepIdx) {
-          const overlay = document.createElement('div');
-          overlay.className = 'pw-overlay';
-          const stepLabel = stepIdx < stepCards.length ? 'Step ' + (stepIdx + 1) : '보너스';
-          overlay.innerHTML =
-            '<div class="pw-modal">' +
-              '<div class="pw-icon">🔐</div>' +
-              '<div class="pw-title">암호를 입력하세요</div>' +
-              '<div class="pw-subtitle">' + stepLabel + ' 프롬프트를 열려면 4자리 암호가 필요합니다!</div>' +
-              '<div class="pw-digits">' +
-                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
-                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
-                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
-                '<input class="pw-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off">' +
-              '</div>' +
-              '<div class="pw-result" id="pw-result"></div>' +
-              '<div class="pw-actions">' +
-                '<button class="pw-close-btn" id="pw-cancel">돌아가기</button>' +
-              '</div>' +
-            '</div>';
-          document.body.appendChild(overlay);
-
-          const digits = overlay.querySelectorAll('.pw-digit');
-          const resultEl = overlay.querySelector('#pw-result');
-
-          setTimeout(function() { digits[0].focus(); }, 100);
-
-          digits.forEach(function(input, i) {
-            input.addEventListener('input', function() {
-              this.value = this.value.replace(/[^0-9]/g, '');
-              if (this.value && i < 3) {
-                digits[i + 1].focus();
-              }
-              var code = Array.from(digits).map(function(d) { return d.value; }).join('');
-              if (code.length === 4) {
-                checkPassword(code, stepIdx, overlay, digits, resultEl);
-              }
-            });
-
-            input.addEventListener('keydown', function(e) {
-              if (e.key === 'Backspace' && !this.value && i > 0) {
-                digits[i - 1].focus();
-                digits[i - 1].value = '';
-              }
-            });
-
-            input.addEventListener('paste', function(e) {
-              e.preventDefault();
-              var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '').slice(0, 4);
-              for (var j = 0; j < pasted.length && j < 4; j++) {
-                digits[j].value = pasted[j];
-              }
-              if (pasted.length === 4) {
-                checkPassword(pasted, stepIdx, overlay, digits, resultEl);
-              } else if (pasted.length > 0) {
-                digits[Math.min(pasted.length, 3)].focus();
-              }
-            });
-          });
-
-          function checkPassword(code, idx, ov, digs, resEl) {
-            var correct = STEP_PASSWORDS[idx] || '0000';
-            if (code === correct) {
-              digs.forEach(function(d) { d.classList.add('correct'); d.disabled = true; });
-              resEl.className = 'pw-result success';
-              resEl.textContent = '🎉 정답! 프롬프트 오픈!';
-              setTimeout(function() {
-                ov.remove();
-                doUnlock(idx);
-              }, 1000);
-            } else {
-              digs.forEach(function(d) { d.classList.add('wrong'); });
-              resEl.className = 'pw-result error';
-              resEl.textContent = '❌ 암호가 틀렸습니다. 다시 시도하세요!';
-              setTimeout(function() {
-                digs.forEach(function(d) { d.classList.remove('wrong'); d.value = ''; });
-                resEl.textContent = '';
-                digs[0].focus();
-              }, 1000);
-            }
-          }
-
-          overlay.querySelector('#pw-cancel').addEventListener('click', function() {
-            overlay.remove();
-          });
-
-          overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) overlay.remove();
-          });
-        }
-
         function doUnlock(idx) {
           const unlocked = getUnlocked();
           if (unlocked.includes(idx)) return;
@@ -2546,7 +2303,7 @@
             return;
           }
 
-          openPasswordModal(idx);
+          doUnlock(idx);
         });
       }
 
