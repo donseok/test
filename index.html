@@ -1535,14 +1535,14 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- STEP 2 -->
     <!-- ═══════════════════════════════════════ -->
-    <div class="step-card">
-      <div class="step-header">
-        <div class="step-number">2</div>
+    <div class="step-card" style="border: 2px solid var(--orange);">
+      <div class="step-header" style="background: linear-gradient(135deg, var(--orange) 0%, #D35400 100%);">
+        <div class="step-number" style="background: var(--navy);">2</div>
         <div class="step-title-area">
-          <h2>숫자 카드 넣기</h2>
-          <div class="step-subtitle">"핵심 지표를 한눈에"</div>
+          <h2>엑셀 데이터 연결하기 ⭐</h2>
+          <div class="step-subtitle">"내 진짜 데이터로 시작!" — 오늘의 핵심</div>
         </div>
-        <div class="step-time">⏱️ 10분</div>
+        <div class="step-time">⏱️ 15분</div>
       </div>
       <div class="step-body">
 
@@ -1551,48 +1551,81 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>눈으로 그리기:</strong> 팀장님이 대시보드를 열었을 때 맨 먼저 봐야 할 숫자가 뭘까요?
-              <span class="thought-example">💭 "올해 목표가 얼마고, 지금 실적이 얼마고, 달성률이 몇 %인지"</span>
+              <strong>문제 인식:</strong> 대시보드에 가짜 숫자를 넣으면 의미가 없습니다. <strong>우리 팀 엑셀 데이터</strong>를 바로 쓸 수 있어야 해요!
+              <span class="thought-example">💭 "엑셀에서 복사 → 붙여넣기 → 자동으로 KPI 카드와 숫자가 나오면 좋겠다"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> 핵심 지표를 카드 형태로 정리해봅시다
-              <span class="thought-example">💭 "카드 4개: 연간목표 | 누계실적 | 달성률 | 거래처 성과율 → 가로로 나란히"</span>
+              <strong>조각으로 나누기:</strong> 이 기능을 세부적으로 쪼개봅시다
+              <span class="thought-example">💭 "① 데이터 입력창 ② 적용/저장 버튼 ③ 데이터 파싱 ④ KPI 카드 자동 계산 ⑤ 테이블 표시"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">3</div>
             <div class="thinking-text">
-              <strong>포인트:</strong> 숫자를 그냥 나열하면 눈에 안 들어옵니다. <strong>큰 글씨 + 작은 설명 + 색상 강조</strong>가 핵심이에요.
-              실무에서 이걸 <strong>"KPI 카드"</strong>라고 부릅니다.
+              <strong>데이터 형태를 정확히 설명하는 것이 핵심!</strong> AI가 데이터를 파싱하려면 <strong>"몇 줄이고, 무슨 순서이고, 어떻게 구분되는지"</strong>를 정확히 알려줘야 합니다.
+              <span class="thought-example">💭 "4줄짜리, 탭으로 구분, 순서: 인천계획 → 인천실적 → 포항계획 → 포항실적"</span>
+            </div>
+          </div>
+          <div class="thinking-step">
+            <div class="thinking-num">4</div>
+            <div class="thinking-text">
+              <strong>포인트:</strong> KPI 숫자를 직접 입력하는 게 아니라, <strong>엑셀 데이터에서 자동 계산</strong>되게 하는 거예요. 인천+포항 합계, 달성률 등이 자동으로!
             </div>
           </div>
         </div>
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt2">첫 번째 탭 "부재료실적 모니터링"에 내용을 추가해줘.
+          <div class="prompt-box" id="prompt2">첫 번째 탭 "부재료실적 모니터링"에 엑셀 데이터 입력 기능과 KPI 카드를 만들어줘.
 
-맨 위에 숫자 카드 4개를 가로로 나란히 배치해줘:
-1. 연간 목표: 272.5만 톤 (설명: 2024년 연간 계획 합계)
-2. 누계 실적: 281.5만 톤 (옆에 "초과" 표시를 오렌지색으로)
-3. 계획 대비 달성률: 103.3% (옆에 "초과" 표시)
-4. 거래처 평균 성과율: 90.4%
+핵심 기능: 엑셀에서 데이터를 복사해서 붙여넣으면, KPI 숫자가 자동으로 계산되어 표시되는 거야.
 
-카드는 흰색 배경에 둥근 모서리, 큰 숫자는 굵고 크게, 설명은 작은 회색 글씨로 해줘.<button class="copy-btn" onclick="copyPrompt('prompt2')">복사</button></div>
+구체적으로 이렇게 만들어줘:
+1. 맨 위에 "데이터 불러오기" 버튼을 만들어줘. 클릭하면 큰 텍스트 입력창(textarea)이 나타나게 해줘.
+2. 사용자가 엑셀에서 아래 형태의 데이터를 복사해서 붙여넣어:
+   4줄짜리 데이터 (탭으로 구분됨)
+   1줄: 인천 계획 숫자 12개 (1월~12월)
+   2줄: 인천 실적 숫자 12개
+   3줄: 포항 계획 숫자 12개
+   4줄: 포항 실적 숫자 12개
+3. "적용" 버튼을 누르면 붙여넣은 텍스트를 줄바꿈과 탭으로 나눠서 숫자로 변환해줘
+4. 데이터를 기반으로 KPI 카드 4개를 자동 계산해서 표시:
+   - 연간 목표: 인천계획 + 포항계획 합계 (만 톤 단위로 변환)
+   - 누계 실적: 인천실적 + 포항실적 합계 (만 톤 단위로 변환)
+   - 계획 대비 달성률: (실적합계 / 계획합계) × 100%
+   - 인천/포항 실적비: 인천실적합계 vs 포항실적합계 비율
+5. "저장" 버튼으로 localStorage에 저장해서 새로고침해도 데이터 유지
+6. 페이지를 열 때 localStorage에 저장된 데이터가 있으면 자동으로 불러와서 KPI 표시
+7. KPI 카드 아래에 현재 데이터를 테이블로 보여줘 (인천 계획, 인천 실적, 포항 계획, 포항 실적 4줄 × 12월)
+
+카드는 흰색 배경에 둥근 모서리, 큰 숫자는 굵고 크게, 설명은 작은 회색 글씨로 해줘.
+달성률이 100% 이상이면 "초과" 표시를 오렌지색으로 넣어줘.<button class="copy-btn" onclick="copyPrompt('prompt2')">복사</button></div>
+        </div>
+
+        <div class="data-section">
+          <div class="data-label">📊 테스트용 데이터 (엑셀에서 복사한 것처럼 붙여넣기)</div>
+          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
+127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
+95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
+111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
+          <div class="check-item">위 테스트 데이터를 붙여넣고 적용하면 KPI 카드에 숫자가 나오나요?</div>
           <div class="check-item">4개 카드가 가로로 나란히 보이나요?</div>
-          <div class="check-item">숫자가 크고 눈에 잘 들어오나요?</div>
+          <div class="check-item">달성률이 자동 계산되어 표시되나요?</div>
+          <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p>프롬프트에 <strong>실제 숫자</strong>를 넣었더니 AI가 바로 반영했죠? "적당히 넣어줘"보다 <strong>"272.5만 톤"처럼 구체적으로</strong> 쓸수록 원하는 결과가 나옵니다.</p>
+          <p><strong>localStorage</strong>는 브라우저 안의 <strong>개인 서랍장</strong> 같은 거예요. 서버 없이도 데이터를 저장할 수 있습니다.
+            프롬프트에서 <strong>"4줄짜리, 탭으로 구분"</strong>이라고 데이터 형태를 명확히 알려준 것이 핵심입니다.
+            AI는 이 설명을 보고 데이터를 파싱하는 코드를 만든 거예요.</p>
         </div>
 
       </div>
@@ -1607,7 +1640,7 @@
         <div class="step-number">3</div>
         <div class="step-title-area">
           <h2>차트 넣기</h2>
-          <div class="step-subtitle">"숫자를 그림으로"</div>
+          <div class="step-subtitle">"데이터를 그림으로 바꾸자"</div>
         </div>
         <div class="step-time">⏱️ 15분</div>
       </div>
@@ -1618,7 +1651,7 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>눈으로 그리기:</strong> 숫자 카드만으론 "추이"가 안 보입니다. 월별 흐름을 보려면?
+              <strong>눈으로 그리기:</strong> KPI 카드만으론 "추이"가 안 보입니다. 월별 흐름을 보려면?
               <span class="thought-example">💭 "막대 차트로 계획 vs 실적을 비교하고, 꺾은선 차트로 거래처별 추이를 보면 되겠다"</span>
             </div>
           </div>
@@ -1632,8 +1665,8 @@
           <div class="thinking-step">
             <div class="thinking-num">3</div>
             <div class="thinking-text">
-              <strong>포인트:</strong> 차트의 <strong>데이터(숫자)</strong>를 직접 알려주세요. AI가 임의로 넣은 데이터는 어차피 나중에 바꿔야 합니다.
-              우리 실제 계획/실적 숫자를 쓰면 바로 실무용이 됩니다!
+              <strong>핵심 포인트:</strong> 앞 단계에서 붙여넣은 데이터가 <strong>차트에도 자동 반영</strong>되어야 합니다.
+              데이터를 다시 입력하는 게 아니라, <strong>저장된 데이터를 읽어서</strong> 차트를 그리는 거예요!
             </div>
           </div>
         </div>
@@ -1642,22 +1675,21 @@
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
           <div class="prompt-box" id="prompt3">KPI 카드 아래에 차트 2개를 나란히 넣어줘.
 차트는 Chart.js 라이브러리를 CDN으로 불러와서 사용해줘.
+차트 데이터는 하드코딩하지 말고, 앞에서 localStorage에 저장한 계획/실적 데이터를 읽어서 자동으로 반영해줘.
+데이터를 새로 붙여넣고 적용하면 차트도 자동 갱신되게 해줘.
 
 왼쪽 차트 (너비 60%): "월별 계획 대비 실적"
 - 막대 차트
 - 가로축: 1월~12월
-- 주황색 막대: 실적 (만톤 단위로 표시)
-- 파란색 테두리 막대: 계획
-- 제목 옆에 "12월 누계 103.3%" 표시
-
-아래 샘플 데이터를 사용해줘:
-계획(만톤): 21.5, 21.5, 22.5, 24.5, 24.5, 25.0, 24.0, 20.0, 20.5, 20.0, 25.0, 23.5
-실적(만톤): 23.9, 20.6, 22.9, 21.4, 22.6, 25.6, 27.1, 24.7, 22.5, 25.2, 23.1, 21.8
+- 계획 합계(인천+포항): 파란색 테두리 막대
+- 실적 합계(인천+포항): 주황색 채운 막대
+- 만톤 단위로 표시
+- 제목 옆에 연간 달성률 % 표시
 
 오른쪽 차트 (너비 40%): "월별 주요 거래처 납품 추이"
 - 꺾은선 차트
 - 거래처 3개: 일보앤틱(파란색), 대한강철(주황색), 동국자원(초록색)
-- 적당한 샘플 데이터를 넣어줘
+- 이 차트는 적당한 샘플 데이터를 넣어줘
 
 화면이 좁아지면 차트가 위아래로 배치되게 해줘.<button class="copy-btn" onclick="copyPrompt('prompt3')">복사</button></div>
         </div>
@@ -1666,12 +1698,13 @@
           <h4>✅ 확인 체크리스트</h4>
           <div class="check-item">막대 차트에서 주황(실적)과 파란(계획)이 구분되나요?</div>
           <div class="check-item">꺾은선 차트에 3개 거래처가 각각 다른 색으로 보이나요?</div>
+          <div class="check-item">데이터를 다시 붙여넣고 적용하면 차트가 자동으로 바뀌나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p><strong>Chart.js</strong>는 인터넷에서 무료로 가져와 쓸 수 있는 차트 도구입니다. <strong>CDN</strong>이라는 방식으로 인터넷 주소 한 줄이면 사용
-            가능해요. AI가 알아서 연결해줬습니다.</p>
+          <p><strong>Chart.js</strong>는 인터넷에서 무료로 가져와 쓸 수 있는 차트 도구입니다. <strong>CDN</strong>이라는 방식으로 인터넷 주소 한 줄이면 사용 가능해요.
+            그리고 "localStorage에서 읽어서"라고 했더니, AI가 앞 단계의 데이터를 <strong>자동 연결</strong>해줬습니다. 이것이 바이브코딩의 힘!</p>
         </div>
 
       </div>
@@ -1681,14 +1714,14 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- STEP 4 -->
     <!-- ═══════════════════════════════════════ -->
-    <div class="step-card" style="border: 2px solid var(--orange);">
-      <div class="step-header" style="background: linear-gradient(135deg, var(--orange) 0%, #D35400 100%);">
-        <div class="step-number" style="background: var(--navy);">4</div>
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">4</div>
         <div class="step-title-area">
-          <h2>엑셀 데이터 붙여넣기 ⭐</h2>
-          <div class="step-subtitle">"진짜 우리 데이터로!" — 오늘의 하이라이트</div>
+          <h2>거래처 납품 데이터 연결</h2>
+          <div class="step-subtitle">"두 번째 엑셀 데이터도 연결하자"</div>
         </div>
-        <div class="step-time">⏱️ 20분</div>
+        <div class="step-time">⏱️ 15분</div>
       </div>
       <div class="step-body">
 
@@ -1697,80 +1730,55 @@
           <div class="thinking-step">
             <div class="thinking-num">1</div>
             <div class="thinking-text">
-              <strong>문제 인식:</strong> 지금 차트의 데이터는 코드에 박혀있습니다. 매달 데이터가 바뀌면 어떻게 하죠?
-              <span class="thought-example">💭 "엑셀에서 데이터를 복사해서 붙여넣으면 차트가 자동으로 바뀌면 좋겠다!"</span>
+              <strong>눈으로 그리기:</strong> 계획/실적 외에 <strong>거래처별 납품 데이터</strong>도 관리해야 합니다.
+              <span class="thought-example">💭 "전기일, 공급업체, 검수등급, 입고량, 입고금액 — 이 5개 열짜리 데이터를 엑셀에서 복사해서 넣으면 되겠다"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
-              <strong>조각으로 나누기:</strong> 이 기능을 세부적으로 쪼개봅시다
-              <span class="thought-example">💭 "① 입력창(textarea) ② 적용 버튼 ③ 저장 버튼 ④ 데이터를 파싱하는 로직 ⑤ 차트 갱신"</span>
+              <strong>조각으로 나누기:</strong> Step 2와 같은 원리를 적용합니다
+              <span class="thought-example">💭 "① 텍스트 입력창 ② 파싱 후 테이블 표시 ③ 데이터가 많으니 페이지 나누기 ④ 저장"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">3</div>
             <div class="thinking-text">
-              <strong>데이터 형태 설명이 핵심!</strong> AI가 데이터를 파싱하려면 <strong>"몇 줄이고, 무슨 순서이고, 어떻게 구분되는지"</strong>를 정확히 알려줘야 합니다.
-              <span class="thought-example">💭 "4줄짜리, 탭으로 구분, 순서: 인천계획 → 인천실적 → 포항계획 → 포항실적"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">4</div>
-            <div class="thinking-text">
-              <strong>+ 거래처 납품 데이터도!</strong> 같은 원리로 5열 데이터(전기일/공급업체/검수등급/입고량/입고금액)도 붙여넣기 가능하게 만들어봅시다.
+              <strong>포인트:</strong> 같은 패턴이 반복됩니다! <strong>"붙여넣기 → 파싱 → 표시 → 저장"</strong>.
+              한 번 배운 프롬프트 구조를 그대로 활용하는 거예요.
             </div>
           </div>
         </div>
 
         <div class="prompt-section">
           <div class="prompt-label">📋 AI에게 보낼 프롬프트</div>
-          <div class="prompt-box" id="prompt4">차트 아래에 "월별 계획 대비 실적 데이터" 영역을 추가해줘.
+          <div class="prompt-box" id="prompt4">차트 아래에 "거래처 납품 실적관리 데이터" 영역을 추가해줘.
 
 이 영역의 핵심 기능:
-엑셀에서 데이터를 복사해서 붙여넣으면, 위의 차트와 KPI 숫자가 자동으로 바뀌는 기능이야.
+엑셀에서 거래처 납품 데이터를 복사해서 붙여넣으면, 테이블로 정리해서 보여주는 거야.
 
 구체적으로 이렇게 만들어줘:
-1. "붙여넣은 값 적용" 버튼과 "저장" 버튼을 만들어줘
-2. 버튼을 누르면 큰 텍스트 입력창(textarea)이 나타나게 해줘
-3. 사용자가 엑셀에서 아래 형태의 데이터를 복사해서 붙여넣어:
-4줄짜리 데이터 (탭으로 구분됨)
-1줄: 인천 계획 숫자 12개 (1월~12월)
-2줄: 인천 실적 숫자 12개
-3줄: 포항 계획 숫자 12개
-4줄: 포항 실적 숫자 12개
-4. "적용" 버튼을 누르면 붙여넣은 텍스트를 줄바꿈과 탭으로 나눠서 숫자로 변환하고, 인천+포항 합계로 차트와 KPI 카드를 자동 갱신해줘
-5. "저장" 버튼을 누르면 localStorage에 저장해서 새로고침해도 데이터가 유지되게 해줘
-6. 페이지를 열 때 localStorage에 저장된 데이터가 있으면 자동으로 불러와줘
-
-아래에 현재 데이터를 테이블로도 보여줘 (인천 계획, 인천 실적, 포항 계획, 포항 실적 4줄)
-
-그리고 그 아래에 "거래처 납품 실적관리 데이터" 영역도 만들어줘:
-- 큰 텍스트 입력창에 엑셀 5개 열을 복사해 붙여넣기 (전기일 / 공급업체명 / 검수등급명 / 입고량 / 입고금액)
-- "원본 데이터 반영" 버튼으로 데이터를 파싱해서 테이블로 표시
-- "저장" 버튼으로 localStorage에 저장
-- 데이터가 많으니까 100개씩 페이지 나누기<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
-        </div>
-
-        <div class="data-section">
-          <div class="data-label">📊 테스트용 데이터 (복사해서 붙여넣기)</div>
-          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
-127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
-95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
-111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
+1. "납품 데이터 불러오기" 버튼 → 클릭하면 큰 텍스트 입력창(textarea) 표시
+2. 엑셀 데이터 형태: 5개 열 (탭으로 구분)
+   - 전기일 / 공급업체명 / 검수등급명(품명) / 입고량 / 입고금액
+3. "원본 데이터 반영" 버튼으로 데이터를 파싱해서 테이블로 표시
+4. 데이터가 많으니까 100개씩 페이지 나누기(페이지네이션)
+5. "저장" 버튼으로 localStorage에 저장
+6. 페이지를 열 때 저장된 데이터가 있으면 자동으로 불러와서 표시
+7. 테이블 위에 간단한 요약 표시: 총 건수, 총 입고량, 총 입고금액<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
-          <div class="check-item">텍스트 입력창에 위 숫자를 붙여넣고 적용하면 차트가 바뀌나요?</div>
+          <div class="check-item">납품 데이터를 붙여넣고 반영하면 테이블이 보이나요?</div>
+          <div class="check-item">페이지 나누기가 동작하나요?</div>
           <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
         </div>
 
         <div class="teacher-tip">
           <h4>💬 강사 한마디</h4>
-          <p><strong>localStorage</strong>는 브라우저 안의 <strong>개인 서랍장</strong> 같은 거예요. 서버 없이도 데이터를 저장할 수 있습니다.
-            그리고 프롬프트에서 <strong>"4줄짜리, 탭으로 구분"</strong>이라고 데이터 형태를 명확히 알려준 것이 핵심입니다.
-            AI는 이 설명을 보고 데이터를 파싱하는 코드를 만든 거예요.</p>
+          <p>Step 2에서 배운 패턴이 그대로 적용됐죠? <strong>"붙여넣기 → 파싱 → 표시 → 저장"</strong>은 데이터 종류가 달라져도 같은 구조입니다.
+            프롬프트도 비슷한 구조로 쓰면 됩니다. 이제 여러분은 <strong>어떤 엑셀 데이터든</strong> 이런 식으로 웹에 연결할 수 있어요!</p>
         </div>
 
       </div>
@@ -2248,9 +2256,9 @@
 
       const messages = [
         ['🚀 시작이 반이다!', '첫 뼈대를 세웠어요'],
-        ['💪 속도가 붙었어요!', 'KPI 카드 마스터'],
+        ['💪 엑셀 데이터 연결!', '내 데이터가 살아났어요'],
         ['📊 차트 장인 등극!', '데이터를 시각화하는 힘'],
-        ['⭐ 하이라이트 미션!', '엑셀 연동의 마법'],
+        ['⭐ 납품 데이터 정복!', '실적관리의 시작'],
         ['🎯 등급 분류 전문가!', '매핑의 세계에 오신 걸 환영합니다'],
         ['🔥 거의 다 왔어요!', '두 번째 탭도 정복'],
         ['🎉 마무리 터치!', '완성도가 달라집니다'],
