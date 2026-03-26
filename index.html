@@ -1586,31 +1586,110 @@
 핵심 기능:
 1. 엑셀에서 4행 × 12열 데이터를 복사해서 그리드에 붙여넣기(Ctrl+V) 가능
 2. 각 셀을 직접 클릭해서 수정도 가능
-3. "저장" 버튼을 누르면 localStorage에 저장
-4. 저장 시 KPI 카드 4개가 자동 갱신:
+3. "적용" 버튼: 붙여넣은 값을 그리드에 반영하고 KPI 카드와 차트를 즉시 갱신
+4. "저장" 버튼: 적용된 데이터를 localStorage에 저장해서 새로고침해도 유지
+5. 저장 시 KPI 카드 4개가 자동 갱신:
    - 연간 목표: (인천계획 + 포항계획) 합계를 만 톤으로 변환
    - 누계 실적: (인천실적 + 포항실적) 합계를 만 톤으로 변환
    - 달성률: (실적합계 / 계획합계) × 100%
    - 인천/포항 비율: 인천실적합계 vs 포항실적합계
-5. 저장 시 "월별 계획 대비 실적" 차트도 자동 갱신
-6. 페이지를 열 때 저장된 데이터가 있으면 그리드에 자동 표시
-7. "초기화" 버튼으로 그리드 데이터 전체 삭제 가능<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
+6. 저장 시 "월별 계획 대비 실적" 차트도 자동 갱신
+7. 페이지를 열 때 저장된 데이터가 있으면 그리드에 자동 표시
+8. "초기화" 버튼으로 그리드 데이터 전체 삭제 가능<button class="copy-btn" onclick="copyPrompt('prompt4')">복사</button></div>
         </div>
 
         <div class="data-section">
-          <div class="data-label">📊 테스트용 데이터 (엑셀에서 복사한 것처럼 붙여넣기)</div>
-          <div class="data-box" id="testdata1">120000	120000	125000	140000	140000	140000	135000	115000	115000	140000	140000	140000
-127063	112223	121629	119461	118783	148765	159953	142029	124798	141347	124439	133081
-95000	95000	100000	105000	105000	110000	105000	85000	90000	60000	110000	95000
-111756	94104	107552	94741	107083	107615	110992	104927	100542	111148	106371	84476<button class="copy-btn" onclick="copyData('testdata1')">복사</button></div>
+          <div class="data-label">📊 테스트용 데이터 (아래 표를 드래그해서 복사 → 그리드에 붙여넣기)</div>
+          <div style="overflow-x: auto; margin-top: 8px;">
+            <table id="testdata1" style="border-collapse: collapse; font-size: 12px; width: 100%; user-select: all; cursor: text;">
+              <thead>
+                <tr style="background: #1B2A4A; color: #fff;">
+                  <th style="padding: 6px 10px; border: 1px solid #374151; text-align: center; white-space: nowrap; min-width: 100px;">구분</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">1월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">2월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">3월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">4월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">5월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">6월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">7월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">8월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">9월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">10월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">11월</th>
+                  <th style="padding: 6px 8px; border: 1px solid #374151; text-align: center;">12월</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #FFFDE7;">
+                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap;">인천 계획</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">120,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">120,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">125,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">135,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">115,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">115,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">140,000</td>
+                </tr>
+                <tr style="background: #fff;">
+                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap;">인천 실적</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">127,063</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">112,223</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">121,629</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">119,461</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">118,783</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">148,765</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">159,953</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">142,029</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">124,798</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">141,347</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">124,439</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">133,081</td>
+                </tr>
+                <tr style="background: #FFFDE7;">
+                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap;">포항 계획</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">95,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">95,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">100,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">105,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">105,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">110,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">105,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">85,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">90,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">60,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">110,000</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">95,000</td>
+                </tr>
+                <tr style="background: #fff;">
+                  <td style="padding: 5px 10px; border: 1px solid #D1D5DB; font-weight: 700; white-space: nowrap;">포항 실적</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">111,756</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">94,104</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">107,552</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">94,741</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">107,083</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">107,615</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">110,992</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">104,927</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">100,542</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">111,148</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">106,371</td>
+                  <td style="padding: 5px 8px; border: 1px solid #D1D5DB; text-align: right;">84,476</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="check-section">
           <h4>✅ 확인 체크리스트</h4>
           <div class="check-item">그리드에 테스트 데이터를 붙여넣을 수 있나요?</div>
-          <div class="check-item">저장하면 KPI 카드에 숫자가 나타나나요?</div>
-          <div class="check-item">차트가 자동으로 갱신되나요?</div>
-          <div class="check-item">새로고침해도 데이터가 유지되나요?</div>
+          <div class="check-item">"적용" 버튼을 누르면 KPI 카드와 차트가 갱신되나요?</div>
+          <div class="check-item">"저장" 버튼을 누르면 새로고침해도 데이터가 유지되나요?</div>
         </div>
 
         <div class="teacher-tip">
