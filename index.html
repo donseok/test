@@ -1986,21 +1986,14 @@
             <div class="thinking-num">1</div>
             <div class="thinking-text">
               <strong>눈으로 그리기:</strong> 이 탭에서는 무엇을 볼 수 있어야 할까요?
-              <span class="thought-example">💭 "등급별(국고상/중/하/선반설) 구매 현황과, 수입 스크랩의 계약/운송 상태를 한눈에"</span>
+              <span class="thought-example">💭 "등급별(국고상/중/하/선반설) 구매 현황을 한눈에"</span>
             </div>
           </div>
           <div class="thinking-step">
             <div class="thinking-num">2</div>
             <div class="thinking-text">
               <strong>조각으로 나누기:</strong> 이 탭도 위에서 아래로 영역을 나눠봅시다
-              <span class="thought-example">💭 "① KPI 카드 4개 ② 월별 구매량 차트 ③ 등급별 도넛 차트 ④ 구매실적 테이블 ⑤ 수입 운송현황 테이블"</span>
-            </div>
-          </div>
-          <div class="thinking-step">
-            <div class="thinking-num">3</div>
-            <div class="thinking-text">
-              <strong>포인트:</strong> 테이블의 <strong>"상태"를 색깔로 구분</strong>해달라고 요청하면, 보고서처럼 한눈에 파악할 수 있습니다.
-              <span class="thought-example">💭 "도착=초록, 운송중=주황, 선적=노랑, 계약=회색 → 이렇게 색깔 규칙을 알려주면 AI가 배지로 만들어줘요"</span>
+              <span class="thought-example">💭 "① KPI 카드 4개 ② 월별 구매량 차트 ③ 등급별 도넛 차트 ④ 구매실적 테이블"</span>
             </div>
           </div>
         </div>
@@ -2028,12 +2021,7 @@
 월 | 국고상(톤) | 국고중(톤) | 국고하(톤) | 선반설(톤) | 합계(톤) | 금액(억원) | 전월비(%)
 12개월 샘플 데이터를 넣어줘.
 
-그 아래에 "수입 계약/운송 현황" 테이블:
-계약번호 | 수출국 | 공급사 | 등급 | 수량(톤) | CFR($/톤) | 환율 | 선적일 | 도착예정일 | 상태
-상태를 색깔 배지로 표시해줘: 도착=초록, 운송중=주황, 선적=노랑, 계약=회색
-샘플 데이터 6개를 넣어줘.
-"+ 계약 등록" 버튼을 만들고, 클릭하면 입력 폼이 팝업으로 뜨게 해줘.
-등록/수정/삭제 모두 localStorage에 저장해줘.<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
+<button class="copy-btn" onclick="copyPrompt('prompt6')">복사</button></div>
         </div>
 
         <div class="check-section">
@@ -2041,8 +2029,6 @@
           <div class="check-item">KPI 카드 4개가 보이나요?</div>
           <div class="check-item">막대+꺾은선 복합 차트가 표시되나요?</div>
           <div class="check-item">도넛 차트에 등급별 비율이 보이나요?</div>
-          <div class="check-item">수입 현황 테이블에 색깔 배지가 표시되나요?</div>
-          <div class="check-item">계약 등록/수정/삭제가 되나요?</div>
         </div>
 
         <div class="teacher-tip">
@@ -2252,8 +2238,6 @@
 - 월별 구매량 추이 복합차트 (등급별 막대 + 합계 꺾은선)
 - 인천공장 배분 도넛 차트 (등급별)
 - 월별 구매실적 상세 테이블
-- 수입 계약/운송 현황 테이블 (상태 배지: 도착=초록, 운송중=주황, 선적=노랑, 계약=회색)
-- 계약 등록/수정/삭제 기능
 
 모든 데이터는 localStorage에 저장.
 반응형 디자인 (넓으면 가로, 좁으면 세로).
