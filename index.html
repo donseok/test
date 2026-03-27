@@ -641,6 +641,148 @@
       font-family: 'Noto Sans KR', sans-serif;
     }
 
+    /* ── DEMO SECTION (Claude in PPT/Excel/Chrome) ── */
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .demo-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .demo-section .demo-subtitle {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+    }
+
+    .demo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .demo-card {
+      border-radius: 12px;
+      padding: 22px 20px;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .demo-card.card-ppt {
+      background: linear-gradient(135deg, #FEF2F2 0%, #FFF7ED 100%);
+      border-color: #FECACA;
+    }
+
+    .demo-card.card-excel {
+      background: linear-gradient(135deg, #ECFDF5 0%, #F0FDFA 100%);
+      border-color: #A7F3D0;
+    }
+
+    .demo-card.card-chrome {
+      background: linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 100%);
+      border-color: #BFDBFE;
+    }
+
+    .demo-card-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .demo-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 8px;
+    }
+
+    .demo-card h3 span {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .demo-card.card-ppt h3 span {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+
+    .demo-card.card-excel h3 span {
+      background: #D1FAE5;
+      color: #059669;
+    }
+
+    .demo-card.card-chrome h3 span {
+      background: #DBEAFE;
+      color: #2563EB;
+    }
+
+    .demo-card p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .demo-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .demo-card ul li {
+      font-size: 12.5px;
+      color: var(--gray-600);
+      padding: 3px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .demo-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .demo-note {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--amber-bg);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      color: var(--gray-700);
+    }
+
+    @media (max-width: 700px) {
+      .demo-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── GLOSSARY ── */
     .glossary-section {
       background: white;
@@ -1382,6 +1524,58 @@
             💡 핵심: "이쁘게 만들어줘" ❌ → "남색 헤더, 오렌지 포인트, 카드 4개 가로 배치" ✅
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ═══════ 클로드 도구 소개 ═══════ -->
+    <div class="section-divider">도구 소개</div>
+
+    <div class="demo-section">
+      <h2>🛠️ Claude가 할 수 있는 것들</h2>
+      <div class="demo-subtitle">바이브코딩 실습 전, Claude의 다양한 활용법을 먼저 살펴봅니다</div>
+
+      <div class="demo-cards">
+        <div class="demo-card card-ppt">
+          <div class="demo-card-icon">📊</div>
+          <h3>Claude in PPT <span>프레젠테이션</span></h3>
+          <p>AI가 슬라이드를 직접 만들어 줍니다. 내용만 알려주면 디자인까지 완성!</p>
+          <ul>
+            <li>텍스트만으로 슬라이드 자동 생성</li>
+            <li>기존 PPT 수정 및 디자인 개선</li>
+            <li>차트·표 삽입, 레이아웃 조정</li>
+            <li>보고서용 템플릿 즉시 제작</li>
+          </ul>
+        </div>
+
+        <div class="demo-card card-excel">
+          <div class="demo-card-icon">📈</div>
+          <h3>Claude in Excel <span>스프레드시트</span></h3>
+          <p>복잡한 수식 없이 말로 설명하면, AI가 데이터를 정리하고 분석합니다.</p>
+          <ul>
+            <li>데이터 정리·가공·변환 자동화</li>
+            <li>피벗 테이블·차트 자동 생성</li>
+            <li>복잡한 수식·함수 대신 작성</li>
+            <li>대용량 데이터 분석 및 요약</li>
+          </ul>
+        </div>
+
+        <div class="demo-card card-chrome">
+          <div class="demo-card-icon">🌐</div>
+          <h3>Claude in Chrome <span>브라우저 자동화</span></h3>
+          <p>웹 브라우저를 AI가 직접 조작합니다. 반복 작업을 자동으로!</p>
+          <ul>
+            <li>웹사이트 자동 탐색·데이터 수집</li>
+            <li>폼 자동 입력·버튼 클릭</li>
+            <li>스크린샷 캡처·페이지 분석</li>
+            <li>반복적인 웹 작업 자동화</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-note">
+        💡 <strong>이 도구들은 모두 Claude Code에서 사용할 수 있습니다.</strong>
+        오늘 실습에서는 바이브코딩(웹 대시보드 만들기)에 집중하지만,
+        같은 방식으로 PPT·Excel·브라우저 작업도 AI에게 맡길 수 있습니다.
       </div>
     </div>
 
